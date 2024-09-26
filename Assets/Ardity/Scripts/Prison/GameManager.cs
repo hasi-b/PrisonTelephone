@@ -11,16 +11,26 @@ public class GameManager : MonoBehaviour
     private int NumberOfPerson = 0;
     [SerializeField]
     private List<CallDetails> CallDetails;
-    private int ActiveIndex = -1;
-    private int Currentindex = -1;
-    private int OnHoldIndex = -1;
+    private int ActiveIndex = 0;
+    private int Currentindex = 0;
+    private int OnHoldIndex = 0;
     private int OnHoldTimeSample = 0;
+    bool hasGroupIsChosen;
+    bool isBeeping;
+    [SerializeField]
+   
     private int Wins = 0;
+    [SerializeField]
     private int Loses = 0;
     private bool isSomeoneOnHold = false;
-
+    public bool isPhoneUp;
     private AudioSource audioSource;
+    [SerializeField]
+    AudioSource holdAudioSource;
+    [SerializeField]
+    AudioSource beepAudiosource;
 
+    CallDetails currentActiveClip;
     private void Awake()
     {
         Instance = this;
@@ -31,6 +41,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         StartCoroutine(CallRingPhoneAfterDelay(StringData.ringC, 2f));
+        currentActiveClip = CallDetails[0];
     }
 
     private void OnEnable()
@@ -57,11 +68,26 @@ public class GameManager : MonoBehaviour
 
     private void StartNextCall()
     {
-        Currentindex++;
-        ActiveIndex = Currentindex;
+        if (holdAudioSource.volume == 0) {
 
-        audioSource.timeSamples = 0;
-        audioSource.PlayOneShot(CallDetails[ActiveIndex].clip);
+            holdAudioSource.volume = 1;
+            audioSource.volume = 0;
+
+            holdAudioSource.clip = CallDetails[ActiveIndex].clip;
+            currentActiveClip = CallDetails[ActiveIndex];
+            if(!holdAudioSource.isPlaying)
+                holdAudioSource.Play();
+        }
+        else if (audioSource.volume == 0)
+        {
+            holdAudioSource.volume = 0;
+            audioSource.volume = 1;
+
+            audioSource.clip = CallDetails[ActiveIndex].clip;
+            currentActiveClip = CallDetails[ActiveIndex];
+            if (!audioSource.isPlaying)
+                audioSource.Play();
+        }
     }
 
     void GetInputMessage(string message)
@@ -69,63 +95,81 @@ public class GameManager : MonoBehaviour
         CallDetails callDetails = CallDetails[ActiveIndex];
         if (message == "up" && NumberOfPerson == 1)
         {
-            Timer.Instance.StartCountdown(callDetails.timeBeforeNextCall);
+            Timer.Instance.StartCountdown(currentActiveClip.timeBeforeNextCall + currentActiveClip.clip.length);
+            Debug.Log("time : "+currentActiveClip.timeBeforeNextCall + currentActiveClip.clip.length);
 
             StartNextCall();
         }
         else if (message == StringData.down)
         {
+            if (NumberOfPerson == 2)
+                Timer.Instance.StartCountdown(currentActiveClip.timeBeforeNextCall+currentActiveClip.clip.length);
+            Debug.Log("time : " + currentActiveClip.timeBeforeNextCall + currentActiveClip.clip.length);
             NumberOfPerson = 0;
             isSomeoneOnHold = false;
-            if(NumberOfPerson == 2)
-                Timer.Instance.StartCountdown(callDetails.timeBeforeNextCall);
+
+            beepAudiosource.Stop();
+            audioSource.Stop();
+            holdAudioSource.Stop();
         }
-        else if(message == "*")
+        else if (message == "*")
         {
-            if(NumberOfPerson == 2)
+            if (NumberOfPerson == 2)
             {
-                if(!isSomeoneOnHold)
+                if (!isSomeoneOnHold)
                 {
                     OnHoldIndex = ActiveIndex;
                     isSomeoneOnHold = true;
+
+                    Currentindex++;
+                    ActiveIndex = Currentindex;
 
                     StartNextCall();
                 }
 
                 else
-                {
+                {           
                     (ActiveIndex, OnHoldIndex) = (OnHoldIndex, ActiveIndex);
 
-                    (audioSource.timeSamples, OnHoldTimeSample) = (OnHoldTimeSample, audioSource.timeSamples);
-
-                    audioSource.Stop();
-                    audioSource.PlayOneShot(CallDetails[ActiveIndex].clip);
+                    StartNextCall();
                 }
             }
         }
 
-        else if(message == callDetails.group.ToString())
+        else if (message == callDetails.group.ToString() && !CallDetails[ActiveIndex].isCalldone)
+        {
             Wins++;
-        else
+            CallDetails[ActiveIndex].isCalldone = true;
+        }
+
+        else if(!CallDetails[ActiveIndex].isCalldone)
+        {
             Loses++;
+            CallDetails[ActiveIndex].isCalldone = true;
+        }
     }
 
     public void PlayBeep()
     {
         NumberOfPerson = 2;
+        beepAudiosource.Play();
+        isBeeping = true;
+
     }
 
     public IEnumerator CallDecision(float delay)
     {
         yield return new WaitForSeconds(delay);
 
-        if (GetMessage.currentMessage == StringData.up)
+        if (isPhoneUp)
         {
             PlayBeep();
         }
 
-        else if (GetMessage.currentMessage == StringData.down)
+        else 
         {
+            Currentindex++;
+            ActiveIndex = Currentindex;
             RingPhone(StringData.ringA);
         }
     }

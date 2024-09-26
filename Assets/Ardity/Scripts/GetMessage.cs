@@ -28,6 +28,15 @@ public class GetMessage : MonoBehaviour
         screenText.text = msg;
         Debug.Log(msg);
         OnMessageReceived?.Invoke(msg);
+        if (msg == StringData.up)
+        {
+            GameManager.Instance.isPhoneUp = true;
+        }
+        else if (msg == StringData.down)
+        {
+            GameManager.Instance.isPhoneUp = false;
+        }
+
         currentMessage = msg;
     }
 
