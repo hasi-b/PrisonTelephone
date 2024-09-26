@@ -4,17 +4,34 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-
     public static GameManager Instance;
 
     [SerializeField]
-    SerialController serialController;
-    bool startAgain;
-    int numberOfPerson=0;
+    private SerialController SerialController;
+    private int NumberOfPerson = 0;
     [SerializeField]
-    List<CallDetails> callDetails;
-    int currentindex=0;
-    // Start is called before the first frame update
+    private List<CallDetails> CallDetails;
+    private int ActiveIndex = -1;
+    private int Currentindex = -1;
+    private int OnHoldIndex = -1;
+    private int OnHoldTimeSample = 0;
+    private int Wins = 0;
+    private int Loses = 0;
+    private bool isSomeoneOnHold = false;
+
+    private AudioSource audioSource;
+
+    private void Awake()
+    {
+        Instance = this;
+    
+        audioSource = GetComponent<AudioSource>();
+    }
+
+    void Start()
+    {
+        StartCoroutine(CallRingPhoneAfterDelay(StringData.ringC, 2f));
+    }
 
     private void OnEnable()
     {
@@ -25,72 +42,88 @@ public class GameManager : MonoBehaviour
     {
         GetMessage.OnMessageReceived -= GetInputMessage;
     }
-    void Start()
-    {
-
-        StartCoroutine(CallRingPhoneAfterDelay(StringData.ringC, 2f));
-    }
-
-
 
     private IEnumerator CallRingPhoneAfterDelay(string ringTone, float delay)
     {
-        yield return new WaitForSeconds(delay); // Wait for 2 seconds
-        RingPhone(ringTone);                    // Call the RingPhone function
+        yield return new WaitForSeconds(delay);
+        RingPhone(ringTone);
     }
 
-
-    private void Awake()
+    public void RingPhone(string ringTone)
     {
-        Instance = this;
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
+        NumberOfPerson = 1;
+        SerialController.SendSerialMessage(ringTone);
     }
 
-     public void RingPhone(string ringTone)
+    private void StartNextCall()
     {
-        numberOfPerson = 1;
-        Debug.Log("rang");
-        serialController.SendSerialMessage(ringTone);
+        Currentindex++;
+        ActiveIndex = Currentindex;
+
+        audioSource.timeSamples = 0;
+        audioSource.PlayOneShot(CallDetails[ActiveIndex].clip);
     }
 
     void GetInputMessage(string message)
     {
-        if (message == "up")
+        CallDetails callDetails = CallDetails[ActiveIndex];
+        if (message == "up" && NumberOfPerson == 1)
         {
-            Timer.Instance.StartCountdown(callDetails[currentindex].clipLength);
+            Timer.Instance.StartCountdown(callDetails.timeBeforeNextCall);
+
+            StartNextCall();
         }
-        else if (message == StringData.down && numberOfPerson == 2)
+        else if (message == StringData.down)
         {
-            Timer.Instance.StartCountdown(callDetails[currentindex].clipLength);
+            NumberOfPerson = 0;
+            isSomeoneOnHold = false;
+            if(NumberOfPerson == 2)
+                Timer.Instance.StartCountdown(callDetails.timeBeforeNextCall);
         }
+        else if(message == "*")
+        {
+            if(NumberOfPerson == 2)
+            {
+                if(!isSomeoneOnHold)
+                {
+                    OnHoldIndex = ActiveIndex;
+                    isSomeoneOnHold = true;
+
+                    StartNextCall();
+                }
+
+                else
+                {
+                    (ActiveIndex, OnHoldIndex) = (OnHoldIndex, ActiveIndex);
+
+                    (audioSource.timeSamples, OnHoldTimeSample) = (OnHoldTimeSample, audioSource.timeSamples);
+
+                    audioSource.Stop();
+                    audioSource.PlayOneShot(CallDetails[ActiveIndex].clip);
+                }
+            }
+        }
+
+        else if(message == callDetails.group.ToString())
+            Wins++;
+        else
+            Loses++;
     }
 
-    public void playBeep()
+    public void PlayBeep()
     {
-        numberOfPerson = 2;
-        Debug.Log("Beeping");
+        NumberOfPerson = 2;
     }
-
-    
-
-
 
     public IEnumerator CallDecision(float delay)
     {
-                                                //
+        yield return new WaitForSeconds(delay);
 
         if (GetMessage.currentMessage == StringData.up)
         {
-           //on hold to do
-            playBeep();
-            yield return new WaitForSeconds(delay);
-
-
+            PlayBeep();
         }
+
         else if (GetMessage.currentMessage == StringData.down)
         {
             RingPhone(StringData.ringA);
