@@ -7,6 +7,7 @@ public class StoryCalls
 {
     public List<AudioClip> clip;
 
-    public List<string> talks;
+    public List<Dialogues> talks;
+
     public int afterThisCall;
 }

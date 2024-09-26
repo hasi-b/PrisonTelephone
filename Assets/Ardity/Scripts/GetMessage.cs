@@ -25,7 +25,7 @@ public class GetMessage : MonoBehaviour
 
     void OnMessageArrived(string msg)
     {
-        screenText.text = msg;
+        //screenText.text = msg;
         Debug.Log(msg);
         OnMessageReceived?.Invoke(msg);
         if (msg == StringData.up)
