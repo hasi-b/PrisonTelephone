@@ -765,17 +765,27 @@ MonoBehaviour:
   SerialController: {fileID: 1724574812}
   CallDetails:
   - clip: {fileID: 8300000, guid: 1d3fe329f0f09824da030cfeb22933f3, type: 3}
-    timeBeforeNextCall: 2
+    timeBeforeNextCall: -8
     group: 1
     isCalldone: 0
   - clip: {fileID: 8300000, guid: 46e36ed74c80c3d4d972b2856da558e6, type: 3}
-    timeBeforeNextCall: 2
+    timeBeforeNextCall: -8
     group: 2
     isCalldone: 0
   - clip: {fileID: 8300000, guid: 62cd9245592caa44698fb327359cb903, type: 3}
-    timeBeforeNextCall: 2
+    timeBeforeNextCall: -8
     group: 3
     isCalldone: 0
+  StoryCalls:
+  - clip:
+    - {fileID: 8300000, guid: 778d8e7f457cfd342a94bef06615f73d, type: 3}
+    - {fileID: 8300000, guid: 22200805fb72ca547baf1bdc60e22414, type: 3}
+    - {fileID: 8300000, guid: 24be02ae95b9b70448250ecb347fc844, type: 3}
+    talks:
+    - '1. Oh hello Mrs S... Is Y ok? Are you guys doing well?  '
+    - 'Is she gonna call me? '
+    - 'A minute every few days... I''m waiting. I hope to hear her voice soon. '
+    afterThisCall: 3
   Wins: 0
   Loses: 0
   isPhoneUp: 0

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class AllCalls : MonoBehaviour
@@ -16,5 +17,7 @@ public class CallDetails
    public int group;
     [HideInInspector]
    public bool isCalldone;
+
+    public List <int> lista = new();
 }
 

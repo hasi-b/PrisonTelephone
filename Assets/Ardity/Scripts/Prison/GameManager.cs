@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     private int NumberOfPerson = 0;
     [SerializeField]
     private List<CallDetails> CallDetails;
+    [SerializeField]
+    private List<StoryCalls> StoryCalls;
     private int ActiveIndex = 0;
     private int Currentindex = 0;
     private int OnHoldIndex = 0;
@@ -31,11 +33,19 @@ public class GameManager : MonoBehaviour
     AudioSource beepAudiosource;
 
     CallDetails currentActiveClip;
+
+    int StoryCallIndex;
+    int StoryCallPhase;
+    bool isOnStoryCall;
+    string storyInput;
+
     private void Awake()
     {
         Instance = this;
     
         audioSource = GetComponent<AudioSource>();
+
+        storyInput = null;
     }
 
     void Start()
@@ -87,66 +97,82 @@ public class GameManager : MonoBehaviour
             currentActiveClip = CallDetails[ActiveIndex];
             if (!audioSource.isPlaying)
                 audioSource.Play();
-        }
+        } 
     }
 
     void GetInputMessage(string message)
     {
-        CallDetails callDetails = CallDetails[ActiveIndex];
-        if (message == "up" && NumberOfPerson == 1)
+        if(!isOnStoryCall)
         {
-            Timer.Instance.StartCountdown(currentActiveClip.timeBeforeNextCall + currentActiveClip.clip.length);
-            Debug.Log("time : "+currentActiveClip.timeBeforeNextCall + currentActiveClip.clip.length);
-
-            StartNextCall();
-        }
-        else if (message == StringData.down)
-        {
-            if (NumberOfPerson == 2)
-                Timer.Instance.StartCountdown(currentActiveClip.timeBeforeNextCall+currentActiveClip.clip.length);
-            Debug.Log("time : " + currentActiveClip.timeBeforeNextCall + currentActiveClip.clip.length);
-            NumberOfPerson = 0;
-            isSomeoneOnHold = false;
-
-            beepAudiosource.Stop();
-            audioSource.Stop();
-            holdAudioSource.Stop();
-        }
-        else if (message == "*")
-        {
-            if (NumberOfPerson == 2)
+            if (message == "up" && NumberOfPerson == 1 && !isOnStoryCall)
             {
-                if (!isSomeoneOnHold)
+                if (StoryCalls.Exists(x => x.afterThisCall == Currentindex))
                 {
-                    OnHoldIndex = ActiveIndex;
-                    isSomeoneOnHold = true;
-
-                    Currentindex++;
-                    ActiveIndex = Currentindex;
-
-                    StartNextCall();
+                    StartCoroutine(StartStoryCall());
+                    return;
                 }
 
-                else
-                {           
-                    (ActiveIndex, OnHoldIndex) = (OnHoldIndex, ActiveIndex);
+                Timer.Instance.StartCountdown(currentActiveClip.timeBeforeNextCall + currentActiveClip.clip.length);
+                Debug.Log("time : " + currentActiveClip.timeBeforeNextCall + currentActiveClip.clip.length);
 
-                    StartNextCall();
+                StartNextCall();
+            }
+            else if (message == StringData.down && !isOnStoryCall)
+            {
+                if (NumberOfPerson == 2)
+                    Timer.Instance.StartCountdown(currentActiveClip.timeBeforeNextCall + currentActiveClip.clip.length);
+                Debug.Log("time : " + currentActiveClip.timeBeforeNextCall + currentActiveClip.clip.length);
+                NumberOfPerson = 0;
+                isSomeoneOnHold = false;
+
+                beepAudiosource.Stop();
+                audioSource.Stop();
+                holdAudioSource.Stop();
+            }
+            else if (message == "*" && !isOnStoryCall)
+            {
+                if (NumberOfPerson == 2)
+                {
+                    if (!isSomeoneOnHold)
+                    {
+                        OnHoldIndex = ActiveIndex;
+                        isSomeoneOnHold = true;
+
+                        Currentindex++;
+                        ActiveIndex = Currentindex;
+
+                        StartNextCall();
+                    }
+
+                    else
+                    {
+                        (ActiveIndex, OnHoldIndex) = (OnHoldIndex, ActiveIndex);
+
+                        StartNextCall();
+                    }
                 }
+            }
+
+            else if (message == CallDetails[ActiveIndex].group.ToString() && !CallDetails[ActiveIndex].isCalldone)
+            {
+                Wins++;
+                CallDetails[ActiveIndex].isCalldone = true;
+            }
+
+            else if (!CallDetails[ActiveIndex].isCalldone)
+            {
+                Loses++;
+                CallDetails[ActiveIndex].isCalldone = true;
             }
         }
 
-        else if (message == callDetails.group.ToString() && !CallDetails[ActiveIndex].isCalldone)
+        else
         {
-            Wins++;
-            CallDetails[ActiveIndex].isCalldone = true;
+            storyInput = message;
+            if (message == StringData.down) ;
+                
         }
-
-        else if(!CallDetails[ActiveIndex].isCalldone)
-        {
-            Loses++;
-            CallDetails[ActiveIndex].isCalldone = true;
-        }
+        
     }
 
     public void PlayBeep()
@@ -172,5 +198,30 @@ public class GameManager : MonoBehaviour
             ActiveIndex = Currentindex;
             RingPhone(StringData.ringA);
         }
+    }
+
+    public IEnumerator StartStoryCall()
+    {
+        StoryCalls story = StoryCalls[StoryCallIndex];
+        for (int i = 0; i < story.clip.Count; i++)
+        {
+            isOnStoryCall = true;
+
+            audioSource.volume = 1;
+            holdAudioSource.volume = 0;
+
+            audioSource.clip = story.clip[i];
+            audioSource.Play();
+
+            yield return new WaitForSeconds(audioSource.clip.length);
+
+            // TODO Show the string
+
+            yield return new WaitUntil(() => storyInput != null);
+
+            storyInput = null;
+        }
+
+        isOnStoryCall = false;
     }
 }
