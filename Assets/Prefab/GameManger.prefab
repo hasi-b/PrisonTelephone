@@ -321,11 +321,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 6b932f73fa1b1e4409239aaf5a189f8f, type: 3}
     talks:
     - Theoptions:
-      - ' She didn''t sound great.'
-      - I think she's fine. holding on strong.
-    - Theoptions:
-      - I don't think so. her voice sounded shaky to me.
-      - 'I understand... She sounded alright to me tho. she told me she''s fine too. '
+      - Hello Y! How are you doing? Everything good?
     afterThisCall: 11
   Wins: 0
   Loses: 0
