@@ -171,12 +171,12 @@ public class GameManager : MonoBehaviour
 
                 StopCoroutine(beepEnum);
             }
-            else if (int.TryParse(message, out int messageInt) && !CallDetails[ActiveIndex].isCalldone && CallDetails[ActiveIndex].group.Contains(messageInt))
+            else if (int.TryParse(message, out int messageInt) && CallDetails[ActiveIndex].isCalldone && CallDetails[ActiveIndex].group.Contains(messageInt))
             {
                 speakerName.DOColor(Color.green, 0.5f).SmoothRewind();
 
                 Wins++;
-                CallDetails[ActiveIndex].isCalldone = true;
+                CallDetails[ActiveIndex].isCalldone = false;
                 audioSource.Stop();
                 holdAudioSource.Stop();
 
@@ -185,12 +185,12 @@ public class GameManager : MonoBehaviour
                 beepAudiosource.Play();
             }
 
-            else if (!CallDetails[ActiveIndex].isCalldone)
-            {
+            else if (int.TryParse(message, out int messageInt2) && CallDetails[ActiveIndex].isCalldone && !CallDetails[ActiveIndex].group.Contains(messageInt2))
+                    {
                 speakerName.DOColor(Color.red, 0.5f).SmoothRewind();
                 
                 Loses++;
-                CallDetails[ActiveIndex].isCalldone = true;
+                CallDetails[ActiveIndex].isCalldone = false;
                 audioSource.Stop();
                 holdAudioSource.Stop();
 
