@@ -68,8 +68,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(StartStoryCall());
-        //StartCoroutine(CallRingPhoneAfterDelay(StringData.ringC, 2f));
+        //StartCoroutine(StartStoryCall());
+        StartCoroutine(CallRingPhoneAfterDelay(StringData.ringC, 2f));
         currentActiveClip = CallDetails[0];
     }
 
