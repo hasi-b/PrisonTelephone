@@ -1516,14 +1516,13 @@ MonoBehaviour:
       - 'A minute every few days... I''m waiting. I hope to hear her voice soon. '
       - 
       - 
-    afterThisCall: 4
+    afterThisCall: 1
   - clip:
     - {fileID: 8300000, guid: 3e1cd7fa4fa38d54e8ed17fb35072849, type: 3}
     - {fileID: 8300000, guid: 37392382c3ce69048a2c97ebb76afbc9, type: 3}
     - {fileID: 8300000, guid: 0a8a861459a7dad4381c20ed73e2e494, type: 3}
     - {fileID: 8300000, guid: 83a83ee36b20cfb4d84dafb63aaa0588, type: 3}
     - {fileID: 8300000, guid: beda30aa95b7207428d9db77fc0f871d, type: 3}
-    - {fileID: 8300000, guid: 9464bc0194f232f48abd75862badb9a7, type: 3}
     talks:
     - Theoptions:
       - Y?

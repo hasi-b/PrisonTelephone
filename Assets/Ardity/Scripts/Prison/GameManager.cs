@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using DG.Tweening;
 using System;
+using System.Linq;
 
 public class GameManager : MonoBehaviour
 {
@@ -128,7 +129,7 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds((wait));
 
-        //PlayBeep();
+        PlayBeep();
     }
 
     void GetInputMessage(string message)
@@ -164,42 +165,16 @@ public class GameManager : MonoBehaviour
 
                 StopCoroutine(beepEnum);
             }
-            /*else if (message == "*" && !isOnStoryCall)
+            else if (int.TryParse(message, out int messageInt) && !CallDetails[ActiveIndex].isCalldone && CallDetails[ActiveIndex].group.Contains(messageInt))
             {
-                if (NumberOfPerson == 2)
-                {
-                    if (!isSomeoneOnHold)
-                    {
-                        OnHoldIndex = ActiveIndex;
-                        isSomeoneOnHold = true;
-
-                        Currentindex++;
-                        ActiveIndex = Currentindex;
-
-                        StartNextCall();
-                    }
-
-                    else
-                    {
-                        (ActiveIndex, OnHoldIndex) = (OnHoldIndex, ActiveIndex);
-
-                        StartNextCall();
-                    }
-                }
-            }*/
-
-            else if (CallDetails[ActiveIndex].group.Contains(int.Parse(message)) && !CallDetails[ActiveIndex].isCalldone)
-            {
-                
                 Wins++;
                 CallDetails[ActiveIndex].isCalldone = true;
                 audioSource.Stop();
                 holdAudioSource.Stop();
-                yesNoAudio.PlayOneShot(yesClip);
-                StartCoroutine(WaitForAudio(yesClip.length+1f));
+
+                StartCoroutine(WaitWinLose(() => yesNoAudio.PlayOneShot(yesClip)));
 
                 beepAudiosource.Play();
-                //StartCoroutine(WaitForBeep(yesClip.length));
             }
 
             else if (!CallDetails[ActiveIndex].isCalldone)
@@ -209,11 +184,10 @@ public class GameManager : MonoBehaviour
                 CallDetails[ActiveIndex].isCalldone = true;
                 audioSource.Stop();
                 holdAudioSource.Stop();
-                yesNoAudio.PlayOneShot(noClip);
-                StartCoroutine(WaitForAudio(noClip.length+1f));
+
+                StartCoroutine(WaitWinLose(() => yesNoAudio.PlayOneShot(noClip)));
 
                 beepAudiosource.Play();
-                //StartCoroutine(WaitForBeep(noClip.length));
             }
         }
 
@@ -288,34 +262,37 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(audioSource.clip.length);
 
             // TODO Show the string
-            for (int j = 0; j < story.talks[i].Theoptions.Count; j++)
+            if(i < story.talks.Count)
             {
-                dialogues[j].SetText(story.talks[i].Theoptions[j].ToString());
+                for (int j = 0; j < story.talks[i].Theoptions.Count; j++)
+                {
+                    dialogues[j].SetText(story.talks[i].Theoptions[j].ToString());
 
-                // Reset the scale to zero before applying the animation
-                dialogues[j].transform.localScale = Vector3.zero;
+                    // Reset the scale to zero before applying the animation
+                    dialogues[j].transform.localScale = Vector3.zero;
 
-                // Animate the scale with a bounce effect
-                dialogues[j].transform.DOScale(Vector3.one, 1f).SetEase(Ease.OutBounce);
+                    // Animate the scale with a bounce effect
+                    dialogues[j].transform.DOScale(Vector3.one, 1f).SetEase(Ease.OutBounce);
+                }
             }
 
             storyInput = null;
-            yield return new WaitUntil(() => storyInput != null);
-
-
-            //for (int j = 0; j < story.talks[i].Theoptions.Count; j++)
-            //{
-            //    dialogues[j].SetText(" ");
-            //}
-
-
+            yield return new WaitUntil(() => storyInput != null || i + 1 >= story.clip.Count);
         }
+
+        beepEnum = StartCoroutine(WaitForBeep(0.1f));
     }
 
 
     private IEnumerator WaitForAudio(float clipLength)
     {
         yield return new WaitForSeconds(clipLength);
-        
+    }
+
+    private IEnumerator WaitWinLose(Action action)
+    {
+        yield return new WaitForSeconds(0.2f);
+
+        action();
     }
 }
