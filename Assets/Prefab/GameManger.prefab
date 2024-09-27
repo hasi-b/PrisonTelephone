@@ -51,12 +51,12 @@ MonoBehaviour:
   - clip: {fileID: 8300000, guid: 486e31f0dd6834744a8a31dfaf279ec7, type: 3}
     timeBeforeNextCall: 0
     group: 0100000004000000
-    isCalldone: 0
+    isCalldone: 1
     lista: 
   - clip: {fileID: 8300000, guid: d2d0181b00e33ca4db01dde90f69cbf7, type: 3}
     timeBeforeNextCall: 0
     group: 0300000004000000
-    isCalldone: 0
+    isCalldone: 1
     lista: 
   - clip: {fileID: 8300000, guid: d7a7a6924072be64faa0dd537cd19030, type: 3}
     timeBeforeNextCall: 0
@@ -289,7 +289,7 @@ MonoBehaviour:
       - Wait wait. I applied for that university.
     - Theoptions:
       - I don't know yet.
-    afterThisCall: 5
+    afterThisCall: 3
   - clip:
     - {fileID: 8300000, guid: fb153f233ad2f2d45918f1bd3868fcbf, type: 3}
     - {fileID: 8300000, guid: 6ad5c00558692e046808ccee958c71b4, type: 3}
@@ -318,7 +318,7 @@ MonoBehaviour:
       - Isn't it dangerous for me?
     - Theoptions:
       - Be careful. Bye.
-    afterThisCall: 11
+    afterThisCall: 14
   - clip:
     - {fileID: 8300000, guid: 3e1cd7fa4fa38d54e8ed17fb35072849, type: 3}
     - {fileID: 8300000, guid: 802ef951625427448b861745088f7262, type: 3}
@@ -331,7 +331,7 @@ MonoBehaviour:
       - Is M safe?
     - Theoptions:
       - I think things will start to get better from here.
-    afterThisCall: 14
+    afterThisCall: 19
   - clip:
     - {fileID: 8300000, guid: 842288fcbdae8dc4dbe2d78d10624ce5, type: 3}
     talks:
@@ -339,7 +339,7 @@ MonoBehaviour:
       - Wow! Thank you! I will contact you!
       - I did not expect this... Wow
       - I was waiting so impatiently for this call... Thanks...
-    afterThisCall: 17
+    afterThisCall: 22
   - clip:
     - {fileID: 8300000, guid: 577240521bc46c94eb79499e3f8efa73, type: 3}
     - {fileID: 8300000, guid: 59a32cd77d205ce43ba6ece3c1bf5a15, type: 3}
@@ -351,10 +351,10 @@ MonoBehaviour:
     - Theoptions:
       - Omg when? And will we be able to actually talk? There's so much I want to
         tell you... Things seem to be finally getting better.
-    afterThisCall: 20
-  Wins: 0
-  Loses: 0
-  isPhoneUp: 0
+    afterThisCall: 28
+  Wins: 1
+  Loses: 1
+  isPhoneUp: 1
   holdAudioSource: {fileID: 0}
   beepAudiosource: {fileID: 0}
   dialogues:
