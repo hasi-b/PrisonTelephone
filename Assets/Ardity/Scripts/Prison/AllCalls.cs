@@ -14,7 +14,7 @@ public class CallDetails
 
    public float timeBeforeNextCall;
    
-   public int group;
+   public List<int> group;
     [HideInInspector]
    public bool isCalldone;
 
