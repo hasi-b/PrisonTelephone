@@ -1203,6 +1203,9 @@ MonoBehaviour:
   - {fileID: 860328232}
   - {fileID: 723865716}
   - {fileID: 859784400}
+  yesNoAudio: {fileID: 0}
+  yesClip: {fileID: 0}
+  noClip: {fileID: 0}
 --- !u!4 &1629267677
 Transform:
   m_ObjectHideFlags: 0
