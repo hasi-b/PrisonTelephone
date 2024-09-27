@@ -44,7 +44,9 @@ public class GameManager : MonoBehaviour
     string storyInput;
 
     [SerializeField]
-    List<TextMeshProUGUI> dialogues;
+    List<TextMeshPro> dialogues;
+    [SerializeField]
+    public TextMeshPro speakerName;
     [SerializeField]
     AudioSource yesNoAudio;
     [SerializeField]
@@ -67,7 +69,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(CallRingPhoneAfterDelay(StringData.ringC, 2f));
+        StartCoroutine(StartStoryCall());
+        //StartCoroutine(CallRingPhoneAfterDelay(StringData.ringC, 2f));
         currentActiveClip = CallDetails[0];
     }
 
@@ -101,8 +104,13 @@ public class GameManager : MonoBehaviour
         SerialController.SendSerialMessage(ringTone);
     }
 
-    private void StartNextCall()
+    private IEnumerator StartNextCall()
     {
+        speakerName.transform.DOScale(Vector3.zero, 0.1f).SetEase(Ease.OutSine);
+        yield return new WaitForSeconds(0.1f);
+        speakerName.text = "Customer";
+        speakerName.transform.DOScale(Vector3.one, 0.1f).SetEase(Ease.OutSine);
+
         if (holdAudioSource.volume == 0) {
 
             holdAudioSource.volume = 1;
@@ -146,8 +154,7 @@ public class GameManager : MonoBehaviour
 
                 //Timer.Instance.StartCountdown(currentActiveClip.timeBeforeNextCall + currentActiveClip.clip.length);
                 Debug.Log("time : " + currentActiveClip.timeBeforeNextCall + currentActiveClip.clip.length);
-
-                StartNextCall();
+                StartCoroutine(StartNextCall());
                 beepEnum = StartCoroutine(WaitForBeep(currentActiveClip.clip.length - 0.3f));
             }
             else if (message == StringData.down && !isOnStoryCall)
@@ -167,6 +174,8 @@ public class GameManager : MonoBehaviour
             }
             else if (int.TryParse(message, out int messageInt) && !CallDetails[ActiveIndex].isCalldone && CallDetails[ActiveIndex].group.Contains(messageInt))
             {
+                speakerName.DOColor(Color.green, 0.5f).SmoothRewind();
+
                 Wins++;
                 CallDetails[ActiveIndex].isCalldone = true;
                 audioSource.Stop();
@@ -179,6 +188,7 @@ public class GameManager : MonoBehaviour
 
             else if (!CallDetails[ActiveIndex].isCalldone)
             {
+                speakerName.DOColor(Color.red, 0.5f).SmoothRewind();
                 
                 Loses++;
                 CallDetails[ActiveIndex].isCalldone = true;
@@ -248,6 +258,11 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator StartStoryCall()
     {
+        speakerName.DOColor(Color.clear, 0.2f).SetEase(Ease.OutSine);
+        yield return new WaitForSeconds(0.2f);
+        speakerName.text = "Friend";
+        speakerName.DOColor(Color.white, 0.2f).SetEase(Ease.OutSine);
+
         StoryCalls story = StoryCalls[StoryCallIndex];
         for (int i = 0; i < story.clip.Count; i++)
         {
@@ -259,6 +274,7 @@ public class GameManager : MonoBehaviour
             audioSource.clip = story.clip[i];
             audioSource.Play();
 
+
             yield return new WaitForSeconds(audioSource.clip.length);
 
             // TODO Show the string
@@ -269,15 +285,30 @@ public class GameManager : MonoBehaviour
                     dialogues[j].SetText(story.talks[i].Theoptions[j].ToString());
 
                     // Reset the scale to zero before applying the animation
-                    dialogues[j].transform.localScale = Vector3.zero;
+                    RectTransform recT = dialogues[j].transform.GetComponent<RectTransform>();
 
                     // Animate the scale with a bounce effect
-                    dialogues[j].transform.DOScale(Vector3.one, 1f).SetEase(Ease.OutBounce);
+                    recT.DOAnchorPos(recT.anchoredPosition + Vector2.right * 10, 0.1f).SetEase(Ease.OutSine);
+
+                    yield return new WaitForSeconds(0.1f);
                 }
             }
 
             storyInput = null;
             yield return new WaitUntil(() => storyInput != null || i + 1 >= story.clip.Count);
+
+            if(i < story.talks.Count)
+            {
+                for (int j = 0; j < story.talks[i].Theoptions.Count; j++)
+                {
+                    // Reset the scale to zero before applying the animation
+                    RectTransform recT = dialogues[j].transform.GetComponent<RectTransform>();
+
+                    recT.DOAnchorPos(recT.anchoredPosition + Vector2.left * 10, 0.1f).SetEase(Ease.OutSine);
+
+                    yield return new WaitForSeconds(0.1f);
+                }
+            }
         }
 
         beepEnum = StartCoroutine(WaitForBeep(0.1f));
