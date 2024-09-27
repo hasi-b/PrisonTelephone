@@ -1485,6 +1485,372 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: Wins
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: Loses
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: isPhoneUp
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: yesNoAudio
+      value: 
+      objectReference: {fileID: 557589022}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: beepAudiosource
+      value: 
+      objectReference: {fileID: 1054901527}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: holdAudioSource
+      value: 
+      objectReference: {fileID: 1044336862}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: SerialController
+      value: 
+      objectReference: {fileID: 1724574812}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: dialogues.Array.data[0]
+      value: 
+      objectReference: {fileID: 902615107}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: dialogues.Array.data[1]
+      value: 
+      objectReference: {fileID: 860328232}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: dialogues.Array.data[2]
+      value: 
+      objectReference: {fileID: 723865716}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: dialogues.Array.data[3]
+      value: 
+      objectReference: {fileID: 859784400}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: CallDetails.Array.data[0].isCalldone
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: CallDetails.Array.data[1].isCalldone
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[0].afterThisCall
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[1].afterThisCall
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[2].afterThisCall
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[3].afterThisCall
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[4].afterThisCall
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[5].afterThisCall
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[6].afterThisCall
+      value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[0].clip.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[1].clip.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[2].clip.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[3].clip.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[4].clip.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[5].clip.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[0].talks.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[1].talks.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[4].talks.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[5].talks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[0].clip.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 1d7b7b501d9b3ed4ba9a88729bd88cde, type: 3}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[0].clip.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: e9ba4e24c8747a44f8d615ed19054aa9, type: 3}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[0].clip.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: a8ec0bf328be396438d588cf97f39f4e, type: 3}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[0].clip.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 8b1b3b7c83ee2c94b8881585561d7c09, type: 3}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[0].clip.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: 8598a458c366d09449d3fb6e01904599, type: 3}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[0].clip.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: b22f87dead4702c4096b7da1ac6bdc87, type: 3}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[1].clip.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 3e1cd7fa4fa38d54e8ed17fb35072849, type: 3}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[1].clip.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 37392382c3ce69048a2c97ebb76afbc9, type: 3}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[1].clip.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 0a8a861459a7dad4381c20ed73e2e494, type: 3}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[1].clip.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: beda30aa95b7207428d9db77fc0f871d, type: 3}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[2].clip.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: fb153f233ad2f2d45918f1bd3868fcbf, type: 3}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[2].clip.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 6ad5c00558692e046808ccee958c71b4, type: 3}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[2].clip.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 3c7bdf027961d584997e79bb420b98f4, type: 3}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[3].clip.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 9464bc0194f232f48abd75862badb9a7, type: 3}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[3].clip.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 7191b91d5ed800b4d9532aff961a1cba, type: 3}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[3].clip.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 3780663280222304bac85cb4d1d4f1e7, type: 3}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[3].clip.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: fadcf94af684ba04cafc4083bdeea6cb, type: 3}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[4].clip.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 3e1cd7fa4fa38d54e8ed17fb35072849, type: 3}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[5].clip.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 842288fcbdae8dc4dbe2d78d10624ce5, type: 3}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[5].clip.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 59a32cd77d205ce43ba6ece3c1bf5a15, type: 3}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[5].clip.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 8533544a4cf0fef4496355645dd5977f, type: 3}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[0].talks.Array.data[0].Theoptions.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[0].talks.Array.data[1].Theoptions.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[0].talks.Array.data[3].Theoptions.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[0].talks.Array.data[4].Theoptions.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[1].talks.Array.data[0].Theoptions.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[1].talks.Array.data[2].Theoptions.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[2].talks.Array.data[1].Theoptions.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[2].talks.Array.data[2].Theoptions.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[3].talks.Array.data[1].Theoptions.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[4].talks.Array.data[0].Theoptions.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[5].talks.Array.data[0].Theoptions.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[5].talks.Array.data[1].Theoptions.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[0].talks.Array.data[0].Theoptions.Array.data[0]
+      value: Oh, hello
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[0].talks.Array.data[0].Theoptions.Array.data[1]
+      value: Hi mrs, S. Why are you calling me here?
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[0].talks.Array.data[0].Theoptions.Array.data[2]
+      value: Mrs S... Is Y ok?
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[0].talks.Array.data[1].Theoptions.Array.data[0]
+      value: Is she gonna call me?
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[0].talks.Array.data[1].Theoptions.Array.data[1]
+      value: You tell me! How are you?
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[0].talks.Array.data[2].Theoptions.Array.data[0]
+      value: A minute every few days... I'm waiting. I hope to hear her voice soon.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[0].talks.Array.data[3].Theoptions.Array.data[0]
+      value: Wait wait. I applied for that university.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[0].talks.Array.data[4].Theoptions.Array.data[0]
+      value: I don't know yet.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[1].talks.Array.data[0].Theoptions.Array.data[0]
+      value: Y?
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[1].talks.Array.data[1].Theoptions.Array.data[0]
+      value: I'm ok. i'm worried for you.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[1].talks.Array.data[1].Theoptions.Array.data[1]
+      value: You tell me! How are you?
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[1].talks.Array.data[2].Theoptions.Array.data[0]
+      value: I know. i know. i'm just glad i'm hearing your voice.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[1].talks.Array.data[2].Theoptions.Array.data[1]
+      value: I understand... She sounded alright to me tho. she told me she's fine
+        too.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[2].talks.Array.data[0].Theoptions.Array.data[0]
+      value: 'I''m good. i spoke to Y yesterday. Did you talk to her? '
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[2].talks.Array.data[1].Theoptions.Array.data[0]
+      value: She didn't sound great.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[2].talks.Array.data[1].Theoptions.Array.data[1]
+      value: I think she's fine. holding on strong.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[2].talks.Array.data[1].Theoptions.Array.data[2]
+      value: Isn't it dangerous for me?
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[2].talks.Array.data[2].Theoptions.Array.data[0]
+      value: 'I don''t think so. her voice sounded shaky to me. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[3].talks.Array.data[0].Theoptions.Array.data[0]
+      value: Hello Y! How are you doing? Everything good?
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[3].talks.Array.data[1].Theoptions.Array.data[0]
+      value: Ok. Ok i will
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[3].talks.Array.data[2].Theoptions.Array.data[0]
+      value: Be careful. Bye.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[4].talks.Array.data[0].Theoptions.Array.data[0]
+      value: How are you? How is Y?
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[4].talks.Array.data[0].Theoptions.Array.data[1]
+      value: I did not expect this... Wow
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[4].talks.Array.data[0].Theoptions.Array.data[2]
+      value: I was waiting so impatiently for this call... Thanks...
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[5].talks.Array.data[0].Theoptions.Array.data[0]
+      value: Wow! Thank you! I will contact you!
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[5].talks.Array.data[0].Theoptions.Array.data[1]
+      value: I did not expect this... Wow
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[5].talks.Array.data[1].Theoptions.Array.data[0]
+      value: Omg when? And will we be able to actually talk? There's so much I want
+        to tell you... Things seem to be finally getting better.
+      objectReference: {fileID: 0}
     - target: {fileID: 3409810514468570799, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
       propertyPath: m_Name
       value: GameManger
