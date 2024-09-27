@@ -4,7 +4,6 @@ using TMPro;
 using UnityEngine;
 using DG.Tweening;
 using System;
-using System.Linq;
 
 public class GameManager : MonoBehaviour
 {
