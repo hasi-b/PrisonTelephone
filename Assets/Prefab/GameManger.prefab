@@ -261,98 +261,97 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 8b1b3b7c83ee2c94b8881585561d7c09, type: 3}
     talks:
     - Theoptions:
-      - Oh, hello!
-      - 'Hi Mrs., S. Why are you calling me here? '
-      - 'Mrs S... Is Y ok? '
+      - Oh, hello
+      - Hi mrs, S. Why are you calling me here?
+      - Mrs S... Is Y ok?
     - Theoptions:
-      - 'Is she gonna call me? '
-      - 
-      - 
+      - Is she gonna call me?
     - Theoptions:
-      - 'A minute every few days... I''m waiting. I hope to hear her voice soon. '
-      - 
-      - 
-    afterThisCall: 4
+      - A minute every few days... I'm waiting. I hope to hear her voice soon.
+    afterThisCall: 2
   - clip:
     - {fileID: 8300000, guid: 3e1cd7fa4fa38d54e8ed17fb35072849, type: 3}
     - {fileID: 8300000, guid: 37392382c3ce69048a2c97ebb76afbc9, type: 3}
     - {fileID: 8300000, guid: 0a8a861459a7dad4381c20ed73e2e494, type: 3}
-    - {fileID: 8300000, guid: 83a83ee36b20cfb4d84dafb63aaa0588, type: 3}
     - {fileID: 8300000, guid: beda30aa95b7207428d9db77fc0f871d, type: 3}
+    - {fileID: 8300000, guid: 8598a458c366d09449d3fb6e01904599, type: 3}
+    - {fileID: 8300000, guid: b22f87dead4702c4096b7da1ac6bdc87, type: 3}
     talks:
     - Theoptions:
       - Y?
-      - 'I missed you... '
-      - 
+      - I missed you...
     - Theoptions:
-      - 'I''m ok. i''m worried for you. '
-      - 'You tell me! How are you? '
-      - 
+      - I'm ok. i'm worried for you.
+      - You tell me! How are you?
     - Theoptions:
       - I know. i know. i'm just glad i'm hearing your voice.
-      - 
-      - 
     - Theoptions:
-      - 'Wait wait. I applied for that university. '
-      - 
-      - 
+      - Wait wait. I applied for that university.
     - Theoptions:
-      - 'I don''t know yet. '
-      - 
-      - 
-    afterThisCall: 7
+      - I don't know yet.
+    afterThisCall: 5
   - clip:
     - {fileID: 8300000, guid: fb153f233ad2f2d45918f1bd3868fcbf, type: 3}
     - {fileID: 8300000, guid: 6ad5c00558692e046808ccee958c71b4, type: 3}
     - {fileID: 8300000, guid: 3c7bdf027961d584997e79bb420b98f4, type: 3}
-    - {fileID: 8300000, guid: 6b932f73fa1b1e4409239aaf5a189f8f, type: 3}
+    - {fileID: 8300000, guid: f9b0ae7e8517d99438fc78f44eaf2e72, type: 3}
     talks:
     - Theoptions:
-      - ' She didn''t sound great.'
+      - 'I''m good. i spoke to Y yesterday. Did you talk to her? '
+    - Theoptions:
+      - She didn't sound great.
       - I think she's fine. holding on strong.
     - Theoptions:
-      - I don't think so. her voice sounded shaky to me.
-      - 'I understand... She sounded alright to me tho. she told me she''s fine too. '
-    afterThisCall: 6
+      - 'I don''t think so. her voice sounded shaky to me. '
+      - I understand... She sounded alright to me tho. she told me she's fine too.
+    afterThisCall: 7
   - clip:
     - {fileID: 8300000, guid: 9464bc0194f232f48abd75862badb9a7, type: 3}
+    - {fileID: 8300000, guid: 7191b91d5ed800b4d9532aff961a1cba, type: 3}
+    - {fileID: 8300000, guid: 3780663280222304bac85cb4d1d4f1e7, type: 3}
     talks:
     - Theoptions:
       - Hello Y! How are you doing? Everything good?
-    afterThisCall: 11
-  - clip:
-    - {fileID: 8300000, guid: 7191b91d5ed800b4d9532aff961a1cba, type: 3}
-    - {fileID: 8300000, guid: 9f47c074a997b084d88d6a4dc572e0fd, type: 3}
-    talks:
     - Theoptions:
       - Ok. Ok i will
       - Isn't it dangerous for you?
-      - 'Isn''t it dangerous for me? '
-      - 'Be careful. Bye. '
-    afterThisCall: 4
+      - Isn't it dangerous for me?
+    - Theoptions:
+      - Be careful. Bye.
+    afterThisCall: 11
   - clip:
-    - {fileID: 8300000, guid: 9464bc0194f232f48abd75862badb9a7, type: 3}
+    - {fileID: 8300000, guid: 3e1cd7fa4fa38d54e8ed17fb35072849, type: 3}
     - {fileID: 8300000, guid: 802ef951625427448b861745088f7262, type: 3}
     - {fileID: 8300000, guid: 732f716b6e1e0c242b7b4ee3b107e131, type: 3}
     - {fileID: 8300000, guid: fadcf94af684ba04cafc4083bdeea6cb, type: 3}
     talks:
     - Theoptions:
-      - 'How are you? How is Y? '
-      - 'Is M safe? '
-      - 'I think things will start to get better from here. '
-    afterThisCall: 11
+      - How are you? How is Y?
+    - Theoptions:
+      - Is M safe?
+    - Theoptions:
+      - I think things will start to get better from here.
+    afterThisCall: 14
+  - clip:
+    - {fileID: 8300000, guid: 842288fcbdae8dc4dbe2d78d10624ce5, type: 3}
+    talks:
+    - Theoptions:
+      - Wow! Thank you! I will contact you!
+      - I did not expect this... Wow
+      - I was waiting so impatiently for this call... Thanks...
+    afterThisCall: 17
   - clip:
     - {fileID: 8300000, guid: 577240521bc46c94eb79499e3f8efa73, type: 3}
     - {fileID: 8300000, guid: 59a32cd77d205ce43ba6ece3c1bf5a15, type: 3}
     - {fileID: 8300000, guid: 8533544a4cf0fef4496355645dd5977f, type: 3}
     talks:
     - Theoptions:
-      - 'I got accepted! '
-      - 'Forget about me how are you? '
+      - I got accepted!
+      - Forget about me how are you?
     - Theoptions:
       - Omg when? And will we be able to actually talk? There's so much I want to
         tell you... Things seem to be finally getting better.
-    afterThisCall: 11
+    afterThisCall: 20
   Wins: 0
   Loses: 0
   isPhoneUp: 0
