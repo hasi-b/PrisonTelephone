@@ -1485,42 +1485,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
-      propertyPath: yesNoAudio
-      value: 
-      objectReference: {fileID: 557589022}
-    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
-      propertyPath: beepAudiosource
-      value: 
-      objectReference: {fileID: 1054901527}
-    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
-      propertyPath: holdAudioSource
-      value: 
-      objectReference: {fileID: 1044336862}
-    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
-      propertyPath: SerialController
-      value: 
-      objectReference: {fileID: 1724574812}
-    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
-      propertyPath: dialogues.Array.data[0]
-      value: 
-      objectReference: {fileID: 902615107}
-    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
-      propertyPath: dialogues.Array.data[1]
-      value: 
-      objectReference: {fileID: 860328232}
-    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
-      propertyPath: dialogues.Array.data[2]
-      value: 
-      objectReference: {fileID: 723865716}
-    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
-      propertyPath: dialogues.Array.data[3]
-      value: 
-      objectReference: {fileID: 859784400}
-    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
-      propertyPath: StoryCalls.Array.data[3].clip.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3409810514468570799, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
       propertyPath: m_Name
       value: GameManger

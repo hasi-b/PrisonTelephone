@@ -313,15 +313,45 @@ MonoBehaviour:
     - Theoptions:
       - I don't think so. her voice sounded shaky to me.
       - 'I understand... She sounded alright to me tho. she told me she''s fine too. '
-    afterThisCall: 11
+    afterThisCall: 6
   - clip:
     - {fileID: 8300000, guid: 9464bc0194f232f48abd75862badb9a7, type: 3}
-    - {fileID: 8300000, guid: 6ad5c00558692e046808ccee958c71b4, type: 3}
-    - {fileID: 8300000, guid: 3c7bdf027961d584997e79bb420b98f4, type: 3}
-    - {fileID: 8300000, guid: 6b932f73fa1b1e4409239aaf5a189f8f, type: 3}
     talks:
     - Theoptions:
       - Hello Y! How are you doing? Everything good?
+    afterThisCall: 11
+  - clip:
+    - {fileID: 8300000, guid: 7191b91d5ed800b4d9532aff961a1cba, type: 3}
+    - {fileID: 8300000, guid: 9f47c074a997b084d88d6a4dc572e0fd, type: 3}
+    talks:
+    - Theoptions:
+      - Ok. Ok i will
+      - Isn't it dangerous for you?
+      - 'Isn''t it dangerous for me? '
+      - 'Be careful. Bye. '
+    afterThisCall: 4
+  - clip:
+    - {fileID: 8300000, guid: 9464bc0194f232f48abd75862badb9a7, type: 3}
+    - {fileID: 8300000, guid: 802ef951625427448b861745088f7262, type: 3}
+    - {fileID: 8300000, guid: 732f716b6e1e0c242b7b4ee3b107e131, type: 3}
+    - {fileID: 8300000, guid: fadcf94af684ba04cafc4083bdeea6cb, type: 3}
+    talks:
+    - Theoptions:
+      - 'How are you? How is Y? '
+      - 'Is M safe? '
+      - 'I think things will start to get better from here. '
+    afterThisCall: 11
+  - clip:
+    - {fileID: 8300000, guid: 577240521bc46c94eb79499e3f8efa73, type: 3}
+    - {fileID: 8300000, guid: 59a32cd77d205ce43ba6ece3c1bf5a15, type: 3}
+    - {fileID: 8300000, guid: 8533544a4cf0fef4496355645dd5977f, type: 3}
+    talks:
+    - Theoptions:
+      - 'I got accepted! '
+      - 'Forget about me how are you? '
+    - Theoptions:
+      - Omg when? And will we be able to actually talk? There's so much I want to
+        tell you... Things seem to be finally getting better.
     afterThisCall: 11
   Wins: 0
   Loses: 0
