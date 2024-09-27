@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using DG.Tweening;
+using System;
 
 public class GameManager : MonoBehaviour
 {
@@ -187,7 +188,7 @@ public class GameManager : MonoBehaviour
                 }
             }*/
 
-            else if (message == CallDetails[ActiveIndex].group.ToString() && !CallDetails[ActiveIndex].isCalldone)
+            else if (CallDetails[ActiveIndex].group.Contains(int.Parse(message)) && !CallDetails[ActiveIndex].isCalldone)
             {
                 
                 Wins++;
