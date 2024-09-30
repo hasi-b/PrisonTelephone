@@ -8,9 +8,10 @@ using System;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-
+    
+    public AudioSource ringToneSource;
     [SerializeField]
-    private SerialController SerialController;
+    //private SerialController SerialController;
     private int NumberOfPerson = 0;
     [SerializeField]
     private List<CallDetails> CallDetails;
@@ -100,7 +101,8 @@ public class GameManager : MonoBehaviour
     public void RingPhone(string ringTone)
     {
         NumberOfPerson = 1;
-        SerialController.SendSerialMessage(ringTone);
+        ringToneSource.Play();
+        //SerialController.SendSerialMessage(ringTone);
     }
 
     private IEnumerator StartNextCall()
@@ -141,6 +143,13 @@ public class GameManager : MonoBehaviour
 
     void GetInputMessage(string message)
     {
+
+        if (message == StringData.up)
+        {
+            ringToneSource.Stop();
+        }
+
+
         if(!isOnStoryCall)
         {
             if (message == "up" && NumberOfPerson == 1 && !isOnStoryCall)
