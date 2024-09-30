@@ -154,7 +154,7 @@ public class GameManager : MonoBehaviour
                 //Timer.Instance.StartCountdown(currentActiveClip.timeBeforeNextCall + currentActiveClip.clip.length);
                 Debug.Log("time : " + currentActiveClip.timeBeforeNextCall + currentActiveClip.clip.length);
                 StartCoroutine(StartNextCall());
-                beepEnum = StartCoroutine(WaitForBeep(currentActiveClip.clip.length - 0.3f));
+               // beepEnum = StartCoroutine(WaitForBeep(currentActiveClip.clip.length - 0.3f));
             }
             else if (message == StringData.down && !isOnStoryCall)
             {
@@ -169,7 +169,7 @@ public class GameManager : MonoBehaviour
                 holdAudioSource.Stop();
                 beepAudiosource.Stop();
 
-                StopCoroutine(beepEnum);
+                //StopCoroutine(beepEnum);
             }
             else if (int.TryParse(message, out int messageInt) && CallDetails[ActiveIndex].isCalldone && CallDetails[ActiveIndex].group.Contains(messageInt))
             {
@@ -221,7 +221,7 @@ public class GameManager : MonoBehaviour
                 holdAudioSource.Stop();
                 beepAudiosource.Stop();
 
-                StopCoroutine(beepEnum);
+               // StopCoroutine(beepEnum);
             }
       
         }
@@ -310,7 +310,7 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        beepEnum = StartCoroutine(WaitForBeep(0.1f));
+       // beepEnum = StartCoroutine(WaitForBeep(0.1f));
     }
 
 

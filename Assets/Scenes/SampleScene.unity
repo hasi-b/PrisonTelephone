@@ -877,7 +877,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0
   m_Pitch: 1
   Loop: 0
@@ -1357,7 +1357,31 @@ PrefabInstance:
       objectReference: {fileID: 1083563349}
     - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
       propertyPath: StoryCalls.Array.data[0].afterThisCall
-      value: 2
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[1].afterThisCall
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[2].afterThisCall
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[3].afterThisCall
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[4].afterThisCall
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[5].afterThisCall
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: StoryCalls.Array.data[6].afterThisCall
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
       propertyPath: StoryCalls.Array.data[4].clip.Array.data[0]
