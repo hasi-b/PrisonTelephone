@@ -19,16 +19,11 @@ public class GameManager : MonoBehaviour
     private List<StoryCalls> StoryCalls;
     private int ActiveIndex = 0;
     private int Currentindex = 0;
-    private int OnHoldIndex = 0;
-    private int OnHoldTimeSample = 0;
-    bool hasGroupIsChosen;
     bool isBeeping;
     [SerializeField]
-   
     private int Wins = 0;
     [SerializeField]
     private int Loses = 0;
-    private bool isSomeoneOnHold = false;
     public bool isPhoneUp;
     private AudioSource audioSource;
     [SerializeField]
@@ -39,7 +34,6 @@ public class GameManager : MonoBehaviour
     CallDetails currentActiveClip;
 
     int StoryCallIndex;
-    int StoryCallPhase;
     bool isOnStoryCall;
     string storyInput;
 
@@ -55,8 +49,6 @@ public class GameManager : MonoBehaviour
     AudioClip noClip;
 
     private Coroutine beepEnum;
-
-
 
     private void Awake()
     {
@@ -161,7 +153,6 @@ public class GameManager : MonoBehaviour
                 }
 
                 //Timer.Instance.StartCountdown(currentActiveClip.timeBeforeNextCall + currentActiveClip.clip.length);
-                Debug.Log("time : " + currentActiveClip.timeBeforeNextCall + currentActiveClip.clip.length);
                 StartCoroutine(StartNextCall());
                // beepEnum = StartCoroutine(WaitForBeep(currentActiveClip.clip.length - 0.3f));
             }
@@ -169,15 +160,14 @@ public class GameManager : MonoBehaviour
             {
                 //Timer.Instance.StartCountdown(currentActiveClip.timeBeforeNextCall + currentActiveClip.clip.length);
                 Timer.Instance.StartCountdown(0.5f);
-                Debug.Log("time : " + currentActiveClip.timeBeforeNextCall + currentActiveClip.clip.length);
                 NumberOfPerson = 0;
-                isSomeoneOnHold = false;
 
                 beepAudiosource.Stop();
                 audioSource.Stop();
                 holdAudioSource.Stop();
                 beepAudiosource.Stop();
 
+                HoursController.Instance.AddMinsIfNotAlreadyAddedViaRealTime(CallDetails[ActiveIndex].minsToPassIfAnswerd);
                 //StopCoroutine(beepEnum);
             }
             else if (int.TryParse(message, out int messageInt) && CallDetails[ActiveIndex].isCalldone && CallDetails[ActiveIndex].group.Contains(messageInt))
@@ -209,11 +199,14 @@ public class GameManager : MonoBehaviour
             }
         }
 
+        // Story Call
         else
         {
             storyInput = message;
             if (message == StringData.down)
             {
+                HoursController.Instance.AddMinsIfNotAlreadyAddedViaRealTime(StoryCalls[StoryCallIndex].minsToPassIfAnswerd);
+
                 storyInput = null;
                 isOnStoryCall = false;
 
@@ -223,7 +216,6 @@ public class GameManager : MonoBehaviour
 
                 Timer.Instance.StartCountdown(1.5f);
                 NumberOfPerson = 0;
-                isSomeoneOnHold = false;
 
                 beepAudiosource.Stop();
                 audioSource.Stop();
@@ -266,6 +258,7 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator StartStoryCall()
     {
+        isOnStoryCall = true;
         speakerName.DOColor(Color.clear, 0.2f).SetEase(Ease.OutSine);
         yield return new WaitForSeconds(0.2f);
         speakerName.text = "Friend";
