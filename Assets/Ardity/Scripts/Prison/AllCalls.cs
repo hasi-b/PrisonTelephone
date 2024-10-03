@@ -16,7 +16,7 @@ public class CallDetails
    
    public List<int> group;
     [HideInInspector]
-   public bool isCalldone;
+   public bool isCalldone = true;
 
     public List <int> lista = new();
 }
