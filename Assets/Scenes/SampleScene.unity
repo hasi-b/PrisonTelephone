@@ -1885,6 +1885,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
       propertyPath: CallDetails.Array.data[0].minsToPassIfAnswerd
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: CallDetails.Array.data[1].minsToPassIfAnswerd
+      value: 1400
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: CallDetails.Array.data[2].minsToPassIfAnswerd
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: CallDetails.Array.data[3].minsToPassIfAnswerd
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: CallDetails.Array.data[7].minsToPassIfAnswerd
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3409810514468570799, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
