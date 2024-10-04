@@ -12,10 +12,12 @@ public class CallDetails
 {
    public AudioClip clip;
 
-   public List<int> group;
+   public float timeBeforeNextCall;
+   
+   public int group;
     [HideInInspector]
-   public bool isCalldone = true;
+   public bool isCalldone;
 
-    public int minsToPassIfAnswerd;
+    public List <int> lista = new();
 }
 

@@ -27,7 +27,7 @@ public class Timer : MonoBehaviour
             {
                 isCounting = false;
                 currentTime = 0f;
-                StartCoroutine(GameManager.Instance.CallDecision(0.5f));
+                StartCoroutine(GameManager.Instance.CallDecision(2));
             }
         }
     }
