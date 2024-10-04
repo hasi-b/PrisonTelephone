@@ -1881,23 +1881,27 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 1320a43eb9633e34390a9f7177aa3b9b, type: 3}
     - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
       propertyPath: StoryCalls.Array.data[0].minsToPassIfAnswerd
-      value: 5
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
       propertyPath: CallDetails.Array.data[0].minsToPassIfAnswerd
-      value: 300
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
+      propertyPath: CallDetails.Array.data[1].group.Array.data[0]
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
       propertyPath: CallDetails.Array.data[1].minsToPassIfAnswerd
-      value: 1400
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
       propertyPath: CallDetails.Array.data[2].minsToPassIfAnswerd
-      value: 120
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
       propertyPath: CallDetails.Array.data[3].minsToPassIfAnswerd
-      value: 200
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 1899645410375722869, guid: 60db4c51c43673446a2d67db29d81c6a, type: 3}
       propertyPath: CallDetails.Array.data[7].minsToPassIfAnswerd
