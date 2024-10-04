@@ -1,0 +1,475 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3409810514468570799
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3881814135206695809}
+  - component: {fileID: 1899645410375722869}
+  - component: {fileID: 6841671950200261095}
+  - component: {fileID: 2952735983697882398}
+  m_Layer: 0
+  m_Name: GameManger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3881814135206695809
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3409810514468570799}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 617.0086, y: 224.36136, z: -0.89874774}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1899645410375722869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3409810514468570799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a32e87e3cc1d0e24ca519bede3a4a63c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SerialController: {fileID: 0}
+  CallDetails:
+  - clip: {fileID: 8300000, guid: 486e31f0dd6834744a8a31dfaf279ec7, type: 3}
+    timeBeforeNextCall: 0
+    group: 0100000004000000
+    isCalldone: 1
+    lista: 
+  - clip: {fileID: 8300000, guid: d2d0181b00e33ca4db01dde90f69cbf7, type: 3}
+    timeBeforeNextCall: 0
+    group: 0300000004000000
+    isCalldone: 1
+    lista: 
+  - clip: {fileID: 8300000, guid: d7a7a6924072be64faa0dd537cd19030, type: 3}
+    timeBeforeNextCall: 0
+    group: 02000000
+    isCalldone: 0
+    lista: 
+  - clip: {fileID: 8300000, guid: 2c1274f0c872b704fac6934998f260c6, type: 3}
+    timeBeforeNextCall: 0
+    group: 0200000003000000
+    isCalldone: 0
+    lista: 
+  - clip: {fileID: 8300000, guid: 82caceaa7e0d20a44928e883d7a5fd6d, type: 3}
+    timeBeforeNextCall: 0
+    group: 0100000002000000
+    isCalldone: 0
+    lista: 
+  - clip: {fileID: 8300000, guid: e6e42b7904b7aa74eb82dfabfbc9b9ca, type: 3}
+    timeBeforeNextCall: 0
+    group: 0100000002000000
+    isCalldone: 0
+    lista: 
+  - clip: {fileID: 8300000, guid: fa403ff7f00390d4eacf3c1cf769b816, type: 3}
+    timeBeforeNextCall: 0
+    group: 0100000002000000
+    isCalldone: 0
+    lista: 
+  - clip: {fileID: 8300000, guid: c0ccbbc2e0c54b74aafef606721e7b45, type: 3}
+    timeBeforeNextCall: 0
+    group: 0200000001000000
+    isCalldone: 0
+    lista: 
+  - clip: {fileID: 8300000, guid: 49203b524ece12d47b228735711b715c, type: 3}
+    timeBeforeNextCall: 0
+    group: 0100000002000000
+    isCalldone: 0
+    lista: 
+  - clip: {fileID: 8300000, guid: f65556bd1c20de94db4830c9b3a6f4ba, type: 3}
+    timeBeforeNextCall: 0
+    group: 010000000200000004000000
+    isCalldone: 0
+    lista: 
+  - clip: {fileID: 8300000, guid: 9d8aad6899d2f3d40924b3517a19f670, type: 3}
+    timeBeforeNextCall: 0
+    group: 0300000005000000
+    isCalldone: 0
+    lista: 
+  - clip: {fileID: 8300000, guid: ad583738030ce924590ce602d329998a, type: 3}
+    timeBeforeNextCall: 0
+    group: 0200000001000000
+    isCalldone: 0
+    lista: 
+  - clip: {fileID: 8300000, guid: 9605120372ea69f4082aed6ea6d4a52e, type: 3}
+    timeBeforeNextCall: 0
+    group: 03000000
+    isCalldone: 0
+    lista: 
+  - clip: {fileID: 8300000, guid: 8b721bcd199fa9443aeec48f4f11dde3, type: 3}
+    timeBeforeNextCall: 0
+    group: 02000000
+    isCalldone: 0
+    lista: 
+  - clip: {fileID: 8300000, guid: dec23a5863c55c440aad2fe60c0880d8, type: 3}
+    timeBeforeNextCall: 0
+    group: 0400000001000000
+    isCalldone: 0
+    lista: 
+  - clip: {fileID: 8300000, guid: 5452edafd3411d44e95e8605625b6012, type: 3}
+    timeBeforeNextCall: 0
+    group: 0100000002000000
+    isCalldone: 0
+    lista: 
+  - clip: {fileID: 8300000, guid: a108b169c1516ca4c9b190df21bee123, type: 3}
+    timeBeforeNextCall: 0
+    group: 0300000002000000
+    isCalldone: 0
+    lista: 
+  - clip: {fileID: 8300000, guid: e18aff623e9a12749b6ea2ed97029eae, type: 3}
+    timeBeforeNextCall: 0
+    group: 010000000300000002000000
+    isCalldone: 0
+    lista: 
+  - clip: {fileID: 8300000, guid: d23cceefbc04de14ab1a2e23cdb21baf, type: 3}
+    timeBeforeNextCall: 0
+    group: 02000000
+    isCalldone: 0
+    lista: 
+  - clip: {fileID: 8300000, guid: 71dceb70f72c6d742a05856508a82882, type: 3}
+    timeBeforeNextCall: 0
+    group: 01000000
+    isCalldone: 0
+    lista: 
+  - clip: {fileID: 8300000, guid: 40f6508bafbfe5e4098eaad665ce933d, type: 3}
+    timeBeforeNextCall: 0
+    group: 04000000
+    isCalldone: 0
+    lista: 
+  - clip: {fileID: 8300000, guid: 518fd4f2a4172364194c5f46c53d9cd9, type: 3}
+    timeBeforeNextCall: 0
+    group: 05000000
+    isCalldone: 0
+    lista: 
+  - clip: {fileID: 8300000, guid: a718f12b971902b44b84cf775473be61, type: 3}
+    timeBeforeNextCall: 0
+    group: 02000000
+    isCalldone: 0
+    lista: 
+  - clip: {fileID: 8300000, guid: 1fceb71dd51fda74cb7416f548a7a3f6, type: 3}
+    timeBeforeNextCall: 0
+    group: 01000000
+    isCalldone: 0
+    lista: 
+  - clip: {fileID: 8300000, guid: a44e5df595c0a554f900766240bd63a9, type: 3}
+    timeBeforeNextCall: 0
+    group: 0100000002000000
+    isCalldone: 0
+    lista: 
+  - clip: {fileID: 8300000, guid: 822ddf954a5dab948831dd93be0079de, type: 3}
+    timeBeforeNextCall: 0
+    group: 0200000003000000
+    isCalldone: 0
+    lista: 
+  - clip: {fileID: 8300000, guid: af71f59a2985e184fb65a0a52bc8c2c5, type: 3}
+    timeBeforeNextCall: 0
+    group: 0500000002000000
+    isCalldone: 0
+    lista: 
+  - clip: {fileID: 8300000, guid: 77bbcfd7a9f958d4d967661345577ac3, type: 3}
+    timeBeforeNextCall: 0
+    group: 0100000002000000
+    isCalldone: 0
+    lista: 
+  - clip: {fileID: 8300000, guid: c4059daa6d979884f888bf0268a5f4eb, type: 3}
+    timeBeforeNextCall: 0
+    group: 03000000
+    isCalldone: 0
+    lista: 
+  - clip: {fileID: 8300000, guid: e95ee7aa9963b064b99327b1fab93005, type: 3}
+    timeBeforeNextCall: 0
+    group: 0100000004000000
+    isCalldone: 0
+    lista: 
+  - clip: {fileID: 8300000, guid: 3df4b2eb00ae43e48a5f1f51fa8c1946, type: 3}
+    timeBeforeNextCall: 0
+    group: 0100000002000000030000000400000005000000
+    isCalldone: 0
+    lista: 
+  - clip: {fileID: 8300000, guid: 87e4a934f1ed7614e9d2928aadbc935c, type: 3}
+    timeBeforeNextCall: 0
+    group: 0200000003000000
+    isCalldone: 0
+    lista: 
+  - clip: {fileID: 8300000, guid: a5d57739faea3e547b650f27db2d4e1a, type: 3}
+    timeBeforeNextCall: 0
+    group: 01000000
+    isCalldone: 0
+    lista: 
+  - clip: {fileID: 8300000, guid: 702f6a6ca87c64342925f7728cba2868, type: 3}
+    timeBeforeNextCall: 0
+    group: 01000000
+    isCalldone: 0
+    lista: 
+  - clip: {fileID: 8300000, guid: 6c37f6405d9f82b46b90645f2c17252d, type: 3}
+    timeBeforeNextCall: 0
+    group: 04000000
+    isCalldone: 0
+    lista: 
+  - clip: {fileID: 8300000, guid: d03a32114e3172f4d98b982eabac006c, type: 3}
+    timeBeforeNextCall: 0
+    group: 05000000
+    isCalldone: 0
+    lista: 
+  - clip: {fileID: 8300000, guid: c29dd22efdb783c4ab0a73d5ddc75f59, type: 3}
+    timeBeforeNextCall: 0
+    group: 01000000
+    isCalldone: 0
+    lista: 
+  - clip: {fileID: 8300000, guid: 9fc8f8c2569514a42a59aa1cc815c49c, type: 3}
+    timeBeforeNextCall: 0
+    group: 01000000
+    isCalldone: 0
+    lista: 
+  - clip: {fileID: 8300000, guid: 96fe35a3b48274e4c9ee9a190d72b29b, type: 3}
+    timeBeforeNextCall: 0
+    group: 0100000004000000
+    isCalldone: 0
+    lista: 
+  - clip: {fileID: 8300000, guid: d4b57e431b1995d4c9df6d36223fef6e, type: 3}
+    timeBeforeNextCall: 0
+    group: 04000000
+    isCalldone: 0
+    lista: 
+  - clip: {fileID: 8300000, guid: 6f9d9f1870827ac488fd7f817bbfed15, type: 3}
+    timeBeforeNextCall: 0
+    group: 0100000004000000
+    isCalldone: 0
+    lista: 
+  StoryCalls:
+  - clip:
+    - {fileID: 8300000, guid: 1d7b7b501d9b3ed4ba9a88729bd88cde, type: 3}
+    - {fileID: 8300000, guid: e9ba4e24c8747a44f8d615ed19054aa9, type: 3}
+    - {fileID: 8300000, guid: a8ec0bf328be396438d588cf97f39f4e, type: 3}
+    - {fileID: 8300000, guid: 8b1b3b7c83ee2c94b8881585561d7c09, type: 3}
+    talks:
+    - Theoptions:
+      - Oh, hello
+      - Hi mrs, S. Why are you calling me here?
+      - Mrs S... Is Y ok?
+    - Theoptions:
+      - Is she gonna call me?
+    - Theoptions:
+      - A minute every few days... I'm waiting. I hope to hear her voice soon.
+    afterThisCall: 2
+  - clip:
+    - {fileID: 8300000, guid: 3e1cd7fa4fa38d54e8ed17fb35072849, type: 3}
+    - {fileID: 8300000, guid: 37392382c3ce69048a2c97ebb76afbc9, type: 3}
+    - {fileID: 8300000, guid: 0a8a861459a7dad4381c20ed73e2e494, type: 3}
+    - {fileID: 8300000, guid: beda30aa95b7207428d9db77fc0f871d, type: 3}
+    - {fileID: 8300000, guid: 8598a458c366d09449d3fb6e01904599, type: 3}
+    - {fileID: 8300000, guid: b22f87dead4702c4096b7da1ac6bdc87, type: 3}
+    talks:
+    - Theoptions:
+      - Y?
+      - I missed you...
+    - Theoptions:
+      - I'm ok. i'm worried for you.
+      - You tell me! How are you?
+    - Theoptions:
+      - I know. i know. i'm just glad i'm hearing your voice.
+    - Theoptions:
+      - Wait wait. I applied for that university.
+    - Theoptions:
+      - I don't know yet.
+    afterThisCall: 3
+  - clip:
+    - {fileID: 8300000, guid: fb153f233ad2f2d45918f1bd3868fcbf, type: 3}
+    - {fileID: 8300000, guid: 6ad5c00558692e046808ccee958c71b4, type: 3}
+    - {fileID: 8300000, guid: 3c7bdf027961d584997e79bb420b98f4, type: 3}
+    - {fileID: 8300000, guid: f9b0ae7e8517d99438fc78f44eaf2e72, type: 3}
+    talks:
+    - Theoptions:
+      - 'I''m good. i spoke to Y yesterday. Did you talk to her? '
+    - Theoptions:
+      - She didn't sound great.
+      - I think she's fine. holding on strong.
+    - Theoptions:
+      - 'I don''t think so. her voice sounded shaky to me. '
+      - I understand... She sounded alright to me tho. she told me she's fine too.
+    afterThisCall: 7
+  - clip:
+    - {fileID: 8300000, guid: 9464bc0194f232f48abd75862badb9a7, type: 3}
+    - {fileID: 8300000, guid: 7191b91d5ed800b4d9532aff961a1cba, type: 3}
+    - {fileID: 8300000, guid: 3780663280222304bac85cb4d1d4f1e7, type: 3}
+    talks:
+    - Theoptions:
+      - Hello Y! How are you doing? Everything good?
+    - Theoptions:
+      - Ok. Ok i will
+      - Isn't it dangerous for you?
+      - Isn't it dangerous for me?
+    - Theoptions:
+      - Be careful. Bye.
+    afterThisCall: 14
+  - clip:
+    - {fileID: 8300000, guid: 3e1cd7fa4fa38d54e8ed17fb35072849, type: 3}
+    - {fileID: 8300000, guid: 802ef951625427448b861745088f7262, type: 3}
+    - {fileID: 8300000, guid: 732f716b6e1e0c242b7b4ee3b107e131, type: 3}
+    - {fileID: 8300000, guid: fadcf94af684ba04cafc4083bdeea6cb, type: 3}
+    talks:
+    - Theoptions:
+      - How are you? How is Y?
+    - Theoptions:
+      - Is M safe?
+    - Theoptions:
+      - I think things will start to get better from here.
+    afterThisCall: 19
+  - clip:
+    - {fileID: 8300000, guid: 842288fcbdae8dc4dbe2d78d10624ce5, type: 3}
+    talks:
+    - Theoptions:
+      - Wow! Thank you! I will contact you!
+      - I did not expect this... Wow
+      - I was waiting so impatiently for this call... Thanks...
+    afterThisCall: 22
+  - clip:
+    - {fileID: 8300000, guid: 577240521bc46c94eb79499e3f8efa73, type: 3}
+    - {fileID: 8300000, guid: 59a32cd77d205ce43ba6ece3c1bf5a15, type: 3}
+    - {fileID: 8300000, guid: 8533544a4cf0fef4496355645dd5977f, type: 3}
+    talks:
+    - Theoptions:
+      - I got accepted!
+      - Forget about me how are you?
+    - Theoptions:
+      - Omg when? And will we be able to actually talk? There's so much I want to
+        tell you... Things seem to be finally getting better.
+    afterThisCall: 28
+  Wins: 1
+  Loses: 1
+  isPhoneUp: 1
+  holdAudioSource: {fileID: 0}
+  beepAudiosource: {fileID: 0}
+  dialogues:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  yesNoAudio: {fileID: 0}
+  yesClip: {fileID: 8300000, guid: f51afe4d873db5649b0ee5f550d2ffb6, type: 3}
+  noClip: {fileID: 8300000, guid: d8f7808069c904c408d235ced6e66aac, type: 3}
+--- !u!114 &6841671950200261095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3409810514468570799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ddbccb74f9227d4994116f95fd32e8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!82 &2952735983697882398
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3409810514468570799}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 0
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

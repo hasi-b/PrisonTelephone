@@ -10,4 +10,6 @@ public class StoryCalls
     public List<Dialogues> talks;
 
     public int afterThisCall;
+
+    public int minsToPassIfAnswerd;
 }
