@@ -48,7 +48,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     AudioClip noClip;
 
-    private Coroutine beepEnum;
+    private bool isUp = false;
+
+    private Coroutine storyCall;
 
     private void Awake()
     {
@@ -86,7 +88,6 @@ public class GameManager : MonoBehaviour
         if (!isPhoneUp)
         {
             beepAudiosource.Stop();
-
         }
     }
 
@@ -135,7 +136,6 @@ public class GameManager : MonoBehaviour
 
     void GetInputMessage(string message)
     {
-
         if (message == StringData.up)
         {
             ringToneSource.Stop();
@@ -147,10 +147,12 @@ public class GameManager : MonoBehaviour
             Debug.Log  ("here");
             if (message == "up" && NumberOfPerson == 1 && !isOnStoryCall)
             {
+                isUp = true;
+
                 if (StoryCalls.Exists(x => x.afterThisCall == Currentindex))
                 {
                     Debug.Log("shithere");
-                    StartCoroutine(StartStoryCall());
+                    storyCall = StartCoroutine(StartStoryCall());
                     return;
                 }
 
@@ -160,6 +162,7 @@ public class GameManager : MonoBehaviour
             }
             else if (message == StringData.down && !isOnStoryCall)
             {
+                isUp = false;
                 Debug.Log("why here");
                 //Timer.Instance.StartCountdown(currentActiveClip.timeBeforeNextCall + currentActiveClip.clip.length);
                 Timer.Instance.StartCountdown(0.5f);
@@ -171,14 +174,15 @@ public class GameManager : MonoBehaviour
                 beepAudiosource.Stop();
 
                 HoursController.Instance.AddMinsIfNotAlreadyAddedViaRealTime(CallDetails[ActiveIndex].minsToPassIfAnswerd);
-                //StopCoroutine(beepEnum);
+                if(storyCall != null)
+                    StopCoroutine(storyCall);
             }
-            else if ( CallDetails[ActiveIndex].isCalldone && CallDetails[ActiveIndex].group.Contains(int.Parse(message)))
+            else if (isUp && !CallDetails[ActiveIndex].IsAssignedToGroup && CallDetails[ActiveIndex].group.Contains(int.Parse(message)))
             {
                 speakerName.DOColor(Color.green, 0.5f).SmoothRewind();
 
                 Wins++;
-                CallDetails[ActiveIndex].isCalldone = false;
+                CallDetails[ActiveIndex].IsAssignedToGroup = true;
                 audioSource.Stop();
                 holdAudioSource.Stop();
 
@@ -187,12 +191,12 @@ public class GameManager : MonoBehaviour
                 beepAudiosource.Play();
             }
 
-            else if ( CallDetails[ActiveIndex].isCalldone && !CallDetails[ActiveIndex].group.Contains(int.Parse(message)))
+            else if (isUp && !CallDetails[ActiveIndex].IsAssignedToGroup && !CallDetails[ActiveIndex].group.Contains(int.Parse(message)))
             {
                 speakerName.DOColor(Color.red, 0.5f).SmoothRewind();
                 
                 Loses++;
-                CallDetails[ActiveIndex].isCalldone = false;
+                CallDetails[ActiveIndex].IsAssignedToGroup = true;
                 audioSource.Stop();
                 holdAudioSource.Stop();
 
@@ -208,6 +212,7 @@ public class GameManager : MonoBehaviour
             storyInput = message;
             if (message == StringData.down)
             {
+                isUp = false;
                 HoursController.Instance.AddMinsIfNotAlreadyAddedViaRealTime(StoryCalls[StoryCallIndex].minsToPassIfAnswerd);
 
                 storyInput = null;

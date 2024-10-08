@@ -14,7 +14,7 @@ public class CallDetails
 
    public List<int> group;
     [HideInInspector]
-   public bool isCalldone = true;
+   public bool IsAssignedToGroup = false;
 
     public int minsToPassIfAnswerd;
 }
