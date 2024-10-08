@@ -144,10 +144,12 @@ public class GameManager : MonoBehaviour
 
         if(!isOnStoryCall)
         {
+            Debug.Log  ("here");
             if (message == "up" && NumberOfPerson == 1 && !isOnStoryCall)
             {
                 if (StoryCalls.Exists(x => x.afterThisCall == Currentindex))
                 {
+                    Debug.Log("shithere");
                     StartCoroutine(StartStoryCall());
                     return;
                 }
@@ -158,6 +160,7 @@ public class GameManager : MonoBehaviour
             }
             else if (message == StringData.down && !isOnStoryCall)
             {
+                Debug.Log("why here");
                 //Timer.Instance.StartCountdown(currentActiveClip.timeBeforeNextCall + currentActiveClip.clip.length);
                 Timer.Instance.StartCountdown(0.5f);
                 NumberOfPerson = 0;
@@ -170,7 +173,7 @@ public class GameManager : MonoBehaviour
                 HoursController.Instance.AddMinsIfNotAlreadyAddedViaRealTime(CallDetails[ActiveIndex].minsToPassIfAnswerd);
                 //StopCoroutine(beepEnum);
             }
-            else if (int.TryParse(message, out int messageInt) && CallDetails[ActiveIndex].isCalldone && CallDetails[ActiveIndex].group.Contains(messageInt))
+            else if ( CallDetails[ActiveIndex].isCalldone && CallDetails[ActiveIndex].group.Contains(int.Parse(message)))
             {
                 speakerName.DOColor(Color.green, 0.5f).SmoothRewind();
 
@@ -184,8 +187,8 @@ public class GameManager : MonoBehaviour
                 beepAudiosource.Play();
             }
 
-            else if (int.TryParse(message, out int messageInt2) && CallDetails[ActiveIndex].isCalldone && !CallDetails[ActiveIndex].group.Contains(messageInt2))
-                    {
+            else if ( CallDetails[ActiveIndex].isCalldone && !CallDetails[ActiveIndex].group.Contains(int.Parse(message)))
+            {
                 speakerName.DOColor(Color.red, 0.5f).SmoothRewind();
                 
                 Loses++;
