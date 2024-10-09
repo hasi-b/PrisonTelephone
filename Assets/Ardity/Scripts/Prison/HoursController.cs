@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 
@@ -20,6 +21,14 @@ public class HoursController : MonoBehaviour
     public TextMeshPro Hours;
     public TextMeshPro Mins;
 
+    public GameObject Game;
+    public GameObject NextDayGO;
+
+    public GameObject Day1;
+    public GameObject Day2;
+    public GameObject Day3;
+    public GameObject Day4;
+
     private void Awake()
     {
         Instance = this;
@@ -40,7 +49,7 @@ public class HoursController : MonoBehaviour
         SolveMinutes();
 
         if(CurrentHour > DayEndHour)
-            NextDay();
+            StartCoroutine(NextDay());
     }
 
     public void AddMinsIfNotAlreadyAddedViaRealTime(int mins)
@@ -51,12 +60,28 @@ public class HoursController : MonoBehaviour
         AddMins(mins);
     }
 
-    public void NextDay()
+    public IEnumerator NextDay()
     {
         CurrentHour = DayStartHour;
         CurrentMins = 0;
 
         CurrentDay++;
+
+        Game.SetActive(false);
+        NextDayGO.SetActive(true);
+
+        if(CurrentDay == 1)
+            Day1.SetActive(true);
+        else if(CurrentDay == 2)
+            Day2.SetActive(true);
+        else if(CurrentDay == 3)
+            Day3.SetActive(true);
+        else if (CurrentDay == 4)
+            Day4.SetActive(true);
+        
+        yield return new WaitForSeconds(4);
+        Game.SetActive(true);
+        NextDayGO.SetActive(false);
     }
 
     private float deltaUntilSec;

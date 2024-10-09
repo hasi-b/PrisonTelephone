@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using DG.Tweening;
 using System;
+using Assets.Scripts.TypewriterEffects;
 
 public class GameManager : MonoBehaviour
 {
@@ -100,10 +101,8 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator StartNextCall()
     {
-        speakerName.transform.DOScale(Vector3.zero, 0.1f).SetEase(Ease.OutSine);
-        yield return new WaitForSeconds(0.1f);
+        speakerName.DOColor(Color.black, 0.2f).SetEase(Ease.OutSine);
         speakerName.text = "Customer";
-        speakerName.transform.DOScale(Vector3.one, 0.1f).SetEase(Ease.OutSine);
 
         if (holdAudioSource.volume == 0) {
 
@@ -125,6 +124,7 @@ public class GameManager : MonoBehaviour
             if (!audioSource.isPlaying)
                 audioSource.Play();
         } 
+        yield return new WaitForSeconds(0.1f);
     }
 
     IEnumerator WaitForBeep(float wait) 
@@ -173,13 +173,15 @@ public class GameManager : MonoBehaviour
                 holdAudioSource.Stop();
                 beepAudiosource.Stop();
 
+                speakerName.DOColor(Color.clear, 0.2f).SetEase(Ease.OutSine);
+
                 HoursController.Instance.AddMinsIfNotAlreadyAddedViaRealTime(CallDetails[ActiveIndex].minsToPassIfAnswerd);
                 if(storyCall != null)
                     StopCoroutine(storyCall);
             }
             else if (isUp && !CallDetails[ActiveIndex].IsAssignedToGroup && CallDetails[ActiveIndex].group.Contains(int.Parse(message)))
             {
-                speakerName.DOColor(Color.green, 0.5f).SmoothRewind();
+                speakerName.DOColor(Color.green, 0.2f).SetEase(Ease.OutSine);
 
                 Wins++;
                 CallDetails[ActiveIndex].IsAssignedToGroup = true;
@@ -193,7 +195,7 @@ public class GameManager : MonoBehaviour
 
             else if (isUp && !CallDetails[ActiveIndex].IsAssignedToGroup && !CallDetails[ActiveIndex].group.Contains(int.Parse(message)))
             {
-                speakerName.DOColor(Color.red, 0.5f).SmoothRewind();
+                speakerName.DOColor(Color.red, 0.2f).SetEase(Ease.OutSine);
                 
                 Loses++;
                 CallDetails[ActiveIndex].IsAssignedToGroup = true;
@@ -267,10 +269,9 @@ public class GameManager : MonoBehaviour
     public IEnumerator StartStoryCall()
     {
         isOnStoryCall = true;
-        speakerName.DOColor(Color.clear, 0.2f).SetEase(Ease.OutSine);
-        yield return new WaitForSeconds(0.2f);
+        speakerName.DOColor(Color.black, 0.2f).SetEase(Ease.OutSine);
         speakerName.text = "Friend";
-        speakerName.DOColor(Color.white, 0.2f).SetEase(Ease.OutSine);
+        yield return new WaitForSeconds(0.2f);
 
         StoryCalls story = StoryCalls[StoryCallIndex];
         for (int i = 0; i < story.clip.Count; i++)
@@ -291,15 +292,13 @@ public class GameManager : MonoBehaviour
             {
                 for (int j = 0; j < story.talks[i].Theoptions.Count; j++)
                 {
+                    dialogues[j].color = Color.black;
                     dialogues[j].SetText(story.talks[i].Theoptions[j].ToString());
 
-                    // Reset the scale to zero before applying the animation
-                    RectTransform recT = dialogues[j].transform.GetComponent<RectTransform>();
+                    Typewriter write = dialogues[j].transform.GetComponent<Typewriter>();
+                    write.Animate();
 
-                    // Animate the scale with a bounce effect
-                    recT.DOAnchorPos(recT.anchoredPosition + Vector2.right * 10, 0.1f).SetEase(Ease.OutSine);
-
-                    yield return new WaitForSeconds(0.1f);
+                    yield return new WaitForSeconds(0.5f);
                 }
             }
 
@@ -310,12 +309,12 @@ public class GameManager : MonoBehaviour
             {
                 for (int j = 0; j < story.talks[i].Theoptions.Count; j++)
                 {
-                    // Reset the scale to zero before applying the animation
-                    RectTransform recT = dialogues[j].transform.GetComponent<RectTransform>();
 
-                    recT.DOAnchorPos(recT.anchoredPosition + Vector2.left * 10, 0.1f).SetEase(Ease.OutSine);
+                    Typewriter write = dialogues[j].transform.GetComponent<Typewriter>();
+                    write.Stop();
+                    dialogues[j].DOFade(0, 0.1f);
 
-                    yield return new WaitForSeconds(0.1f);
+                    yield return new WaitForSeconds(0.5f);
                 }
             }
         }
