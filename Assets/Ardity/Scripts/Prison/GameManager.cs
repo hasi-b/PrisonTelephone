@@ -52,6 +52,13 @@ public class GameManager : MonoBehaviour
     private bool isUp = false;
 
     private Coroutine storyCall;
+    
+    public GameObject StoryBG;
+    public GameObject ColorfullStoryBG;
+    public GameObject SadStoryBG;
+    public GameObject StoryBGDisable;
+
+    public List<GameObject> PVFX;
 
     private void Awake()
     {
@@ -101,8 +108,9 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator StartNextCall()
     {
-        speakerName.DOColor(Color.black, 0.2f).SetEase(Ease.OutSine);
+        speakerName.color = Color.black;
         speakerName.text = "Customer";
+        speakerName.GetComponent<Typewriter>().Animate();
 
         if (holdAudioSource.volume == 0) {
 
@@ -173,7 +181,9 @@ public class GameManager : MonoBehaviour
                 holdAudioSource.Stop();
                 beepAudiosource.Stop();
 
-                speakerName.DOColor(Color.clear, 0.2f).SetEase(Ease.OutSine);
+                speakerName.text = "";
+                speakerName.GetComponent<Typewriter>().Animate();
+
 
                 HoursController.Instance.AddMinsIfNotAlreadyAddedViaRealTime(CallDetails[ActiveIndex].minsToPassIfAnswerd);
                 if(storyCall != null)
@@ -214,6 +224,9 @@ public class GameManager : MonoBehaviour
             storyInput = message;
             if (message == StringData.down)
             {
+                StoryBG.SetActive(false);
+                StoryBGDisable.SetActive(true);
+
                 isUp = false;
                 HoursController.Instance.AddMinsIfNotAlreadyAddedViaRealTime(StoryCalls[StoryCallIndex].minsToPassIfAnswerd);
 
@@ -231,6 +244,14 @@ public class GameManager : MonoBehaviour
                 audioSource.Stop();
                 holdAudioSource.Stop();
                 beepAudiosource.Stop();
+
+                speakerName.text = "";
+                if(speakerName.isActiveAndEnabled)
+                    speakerName.GetComponent<Typewriter>().Animate();
+
+                HoursController.Instance.AddMinsIfNotAlreadyAddedViaRealTime(CallDetails[ActiveIndex].minsToPassIfAnswerd);
+                if(storyCall != null)
+                    StopCoroutine(storyCall);
 
                // StopCoroutine(beepEnum);
             }
@@ -268,14 +289,31 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator StartStoryCall()
     {
+        StoryCalls story = StoryCalls[StoryCallIndex];
+
+        SadStoryBG.SetActive(false);
+        ColorfullStoryBG.SetActive(false);
+
+        if(story.IsSad)
+            SadStoryBG.SetActive(true);
+        else
+            ColorfullStoryBG.SetActive(true);
+        StoryBG.SetActive(true);
+        StoryBGDisable.SetActive(false);
+
         isOnStoryCall = true;
-        speakerName.DOColor(Color.black, 0.2f).SetEase(Ease.OutSine);
         speakerName.text = "Friend";
+        speakerName.GetComponent<Typewriter>().Animate();
         yield return new WaitForSeconds(0.2f);
 
-        StoryCalls story = StoryCalls[StoryCallIndex];
         for (int i = 0; i < story.clip.Count; i++)
         {
+            PVFX = (List<GameObject>)Shuffle(PVFX);
+            for (var li = 0; li < PVFX.Count; li++)
+            {
+                PVFX[li].SetActive(false);
+            }
+
             isOnStoryCall = true;
 
             audioSource.volume = 1;
@@ -283,7 +321,6 @@ public class GameManager : MonoBehaviour
 
             audioSource.clip = story.clip[i];
             audioSource.Play();
-
 
             yield return new WaitForSeconds(audioSource.clip.length);
 
@@ -304,6 +341,16 @@ public class GameManager : MonoBehaviour
 
             storyInput = null;
             yield return new WaitUntil(() => storyInput != null || i + 1 >= story.clip.Count);
+
+            if(!story.IsSad)
+            {
+                PVFX = (List<GameObject>)Shuffle(PVFX);
+                for (var li = 0; li < UnityEngine.Random.Range(0, PVFX.Count); li++)
+                {
+                    PVFX[li].SetActive(false);
+                    PVFX[li].SetActive(true);
+                }
+            }
 
             if(i < story.talks.Count)
             {
@@ -333,5 +380,20 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
 
         action();
+    }
+
+    private static System.Random rng = new System.Random();  
+    public IList<T> Shuffle<T>(IList<T> list)  
+    {  
+        int n = list.Count;  
+        while (n > 1) {  
+            n--;  
+            int k = rng.Next(n + 1);  
+            T value = list[k];  
+            list[k] = list[n];  
+            list[n] = value;  
+        }  
+
+        return list;
     }
 }

@@ -1,4 +1,5 @@
 using System.Collections;
+using Assets.Scripts.TypewriterEffects;
 using TMPro;
 using UnityEngine;
 
@@ -29,11 +30,40 @@ public class HoursController : MonoBehaviour
     public GameObject Day3;
     public GameObject Day4;
 
+    public Typewriter Goal1;
+    public Typewriter Goal2;
+    public Typewriter Goal3;
+    public Typewriter Goal4;
+    public Typewriter Goal5;
+
+    public Typewriter ExtraGoal1;
+    public Typewriter ExtraGoal2;
+
     private void Awake()
     {
         Instance = this;
 
         SolveMinutes();
+    }
+    
+    IEnumerator Start()
+    {
+        Goal1.Animate();
+
+        yield return new WaitForSeconds(0.2f);
+
+        Goal2.gameObject.SetActive(true);
+        Goal2.Animate();
+
+        yield return new WaitForSeconds(0.2f);
+
+        ExtraGoal1.gameObject.SetActive(true);
+        ExtraGoal1.Animate();
+
+        yield return new WaitForSeconds(0.3f);
+
+        ExtraGoal2.gameObject.SetActive(true);
+        ExtraGoal2.Animate();
     }
 
     public void SolveMinutes()
@@ -70,18 +100,47 @@ public class HoursController : MonoBehaviour
         Game.SetActive(false);
         NextDayGO.SetActive(true);
 
-        if(CurrentDay == 1)
+        if(CurrentDay == 2)
+        {
             Day1.SetActive(true);
-        else if(CurrentDay == 2)
-            Day2.SetActive(true);
+        }
         else if(CurrentDay == 3)
+        {
+            Day1.GetComponent<Animator>().enabled = false;
+            Day2.SetActive(true);
+        }
+        else if(CurrentDay == 4)
+        {
+            Day2.GetComponent<Animator>().enabled = false;
             Day3.SetActive(true);
-        else if (CurrentDay == 4)
+        }
+        else if (CurrentDay == 5)
+        {
+            Day3.GetComponent<Animator>().enabled = false;
             Day4.SetActive(true);
+        }
         
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(3);
         Game.SetActive(true);
         NextDayGO.SetActive(false);
+
+        Timer.Instance.StartCountdown(1.5f);
+
+        if(CurrentDay == 2)
+        {
+            Goal3.gameObject.SetActive(true);
+
+            Goal3.Animate();
+        }
+        else if(CurrentDay == 3)
+        {
+            Goal4.gameObject.SetActive(true);
+            Goal5.gameObject.SetActive(true);
+
+            Goal4.Animate();
+        yield return new WaitForSeconds(0.3f);
+            Goal5.Animate();
+        }
     }
 
     private float deltaUntilSec;
@@ -101,7 +160,7 @@ public class HoursController : MonoBehaviour
 
     private void SetText()
     {
-        Day.text = CurrentDay.ToString("00");
+        Day.text = CurrentDay.ToString("0");
         Hours.text = CurrentHour.ToString("00");
         Mins.text = CurrentMins.ToString("00");
     }

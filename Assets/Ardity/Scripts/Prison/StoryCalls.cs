@@ -12,4 +12,6 @@ public class StoryCalls
     public int afterThisCall;
 
     public int minsToPassIfAnswerd;
+
+    public bool IsSad;
 }
