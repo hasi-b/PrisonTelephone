@@ -47,14 +47,14 @@ public class GetMessage : MonoBehaviour
     // Handle input for U (up) and I (down) keys
     private void HandleDirectionInput()
     {
-        if (Input.GetKeyDown(KeyCode.U))
+        if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             msg = StringData.up;
             OnMessageReceived?.Invoke(msg);
             GameManager.Instance.isPhoneUp = true;
 
         }
-        else if (Input.GetKeyDown(KeyCode.I))
+        else if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             msg = StringData.down;
             OnMessageReceived?.Invoke(msg);

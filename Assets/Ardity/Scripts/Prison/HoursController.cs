@@ -29,6 +29,8 @@ public class HoursController : MonoBehaviour
     public GameObject Day2;
     public GameObject Day3;
     public GameObject Day4;
+    public GameObject Day5;
+    public GameObject Day6;
 
     public Typewriter Goal1;
     public Typewriter Goal2;
@@ -46,7 +48,7 @@ public class HoursController : MonoBehaviour
         SolveMinutes();
     }
     
-    IEnumerator Start()
+    public IEnumerator StartHours()
     {
         Goal1.Animate();
 
@@ -118,6 +120,16 @@ public class HoursController : MonoBehaviour
         {
             Day3.GetComponent<Animator>().enabled = false;
             Day4.SetActive(true);
+        }
+        else if (CurrentDay == 6)
+        {
+            Day4.GetComponent<Animator>().enabled = false;
+            Day5.SetActive(true);
+        }
+        else if (CurrentDay == 7)
+        {
+            Day5.GetComponent<Animator>().enabled = false;
+            Day6.SetActive(true);
         }
         
         yield return new WaitForSeconds(3);

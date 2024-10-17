@@ -14,4 +14,5 @@ public class StoryCalls
     public int minsToPassIfAnswerd;
 
     public bool IsSad;
+    public bool IsHappy;
 }

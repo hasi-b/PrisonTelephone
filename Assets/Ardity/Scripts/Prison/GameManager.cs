@@ -60,6 +60,17 @@ public class GameManager : MonoBehaviour
 
     public List<GameObject> PVFX;
 
+
+    public GameObject Game;
+    public GameObject Start1;
+    public Typewriter StartText1;
+    public Typewriter StartText2;
+    public GameObject Start2;
+    public Typewriter StartText3;
+
+    public GameObject End;
+    public string PublicMessage;
+
     private void Awake()
     {
         Instance = this;
@@ -71,8 +82,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        //StartCoroutine(StartStoryCall());
-        StartCoroutine(CallRingPhoneAfterDelay(StringData.ringC, 2f));
+        StartCoroutine(StartSlayt());
         currentActiveClip = CallDetails[0];
     }
 
@@ -84,6 +94,32 @@ public class GameManager : MonoBehaviour
     private void OnDisable()
     {
         GetMessage.OnMessageReceived -= GetInputMessage;
+    }
+
+    
+    private IEnumerator StartSlayt()
+    {
+        string text = StartText2.gameObject.GetComponent<TextMeshPro>().text;
+        StartText2.gameObject.GetComponent<TextMeshPro>().text = "";
+
+        Start1.SetActive(true);
+        StartText1.Animate();
+        yield return new WaitForSeconds(3);
+        StartText2.gameObject.GetComponent<TextMeshPro>().text = text;
+        StartText2.Animate();
+
+        yield return new WaitForSeconds(13);
+
+        Start1.SetActive(false);
+        Start2.SetActive(true);
+        StartText3.Animate();
+
+        yield return new WaitForSeconds(17);
+        Start2.SetActive(false);
+        Game.SetActive(true);
+
+        StartCoroutine(CallRingPhoneAfterDelay(StringData.ringC, 2f));
+        StartCoroutine(HoursController.Instance.StartHours());
     }
 
     private IEnumerator CallRingPhoneAfterDelay(string ringTone, float delay)
@@ -144,11 +180,11 @@ public class GameManager : MonoBehaviour
 
     void GetInputMessage(string message)
     {
+        PublicMessage = message;
         if (message == StringData.up)
         {
             ringToneSource.Stop();
         }
-
 
         if(!isOnStoryCall)
         {
@@ -200,7 +236,7 @@ public class GameManager : MonoBehaviour
 
                 StartCoroutine(WaitWinLose(() => yesNoAudio.PlayOneShot(yesClip)));
 
-                beepAudiosource.Play();
+                StartCoroutine(WaitWinLose(() => beepAudiosource.Play()));
             }
 
             else if (isUp && !CallDetails[ActiveIndex].IsAssignedToGroup && !CallDetails[ActiveIndex].group.Contains(int.Parse(message)))
@@ -214,7 +250,7 @@ public class GameManager : MonoBehaviour
 
                 StartCoroutine(WaitWinLose(() => yesNoAudio.PlayOneShot(noClip)));
 
-                beepAudiosource.Play();
+                StartCoroutine(WaitWinLose(() => beepAudiosource.Play()));
             }
         }
 
@@ -265,7 +301,6 @@ public class GameManager : MonoBehaviour
         NumberOfPerson = 2;
         beepAudiosource.Play();
         isBeeping = true;
-
     }
 
     public IEnumerator CallDecision(float delay)
@@ -296,7 +331,7 @@ public class GameManager : MonoBehaviour
 
         if(story.IsSad)
             SadStoryBG.SetActive(true);
-        else
+        else if(story.IsHappy)
             ColorfullStoryBG.SetActive(true);
         StoryBG.SetActive(true);
         StoryBGDisable.SetActive(false);
@@ -366,7 +401,10 @@ public class GameManager : MonoBehaviour
             }
         }
 
-       // beepEnum = StartCoroutine(WaitForBeep(0.1f));
+        if(story.IsHappy)
+            End.SetActive(true);
+        else
+            StartCoroutine(WaitWinLose(() => beepAudiosource.Play()));
     }
 
 
