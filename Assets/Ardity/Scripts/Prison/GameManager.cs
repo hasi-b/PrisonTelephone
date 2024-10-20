@@ -155,7 +155,10 @@ public class GameManager : MonoBehaviour
         {
             beepAudiosource.Stop();
         }
+    }
 
+    private void LateUpdate()
+    {
         _skipCutscene = false;
     }
 
