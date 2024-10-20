@@ -65,11 +65,15 @@ public class GameManager : MonoBehaviour
     public GameObject Start1;
     public Typewriter StartText1;
     public Typewriter StartText2;
+    public Typewriter StartText1End;
     public GameObject Start2;
     public Typewriter StartText3;
+    public Typewriter StartText2End;
 
     public GameObject End;
     public string PublicMessage;
+    
+    private bool _skipCutscene = false;
 
     private void Awake()
     {
@@ -102,19 +106,37 @@ public class GameManager : MonoBehaviour
         string text = StartText2.gameObject.GetComponent<TextMeshPro>().text;
         StartText2.gameObject.GetComponent<TextMeshPro>().text = "";
 
+        string tex2 = StartText1End.gameObject.GetComponent<TextMeshPro>().text;
+        StartText1End.gameObject.GetComponent<TextMeshPro>().text = "";
+
         Start1.SetActive(true);
         StartText1.Animate();
         yield return new WaitForSeconds(3);
         StartText2.gameObject.GetComponent<TextMeshPro>().text = text;
         StartText2.Animate();
 
-        yield return new WaitForSeconds(13);
+        yield return new WaitForSeconds(6);
+        StartText1End.gameObject.GetComponent<TextMeshPro>().text = tex2;
+        StartText1End.Animate();
+
+        yield return new WaitUntil(() => _skipCutscene == true);
+        _skipCutscene = false;
 
         Start1.SetActive(false);
         Start2.SetActive(true);
         StartText3.Animate();
 
-        yield return new WaitForSeconds(17);
+        text = StartText2End.gameObject.GetComponent<TextMeshPro>().text;
+        StartText2End.gameObject.GetComponent<TextMeshPro>().text = "";
+
+        yield return new WaitForSeconds(10.5f);
+
+        StartText2End.gameObject.GetComponent<TextMeshPro>().text = text;
+        StartText2End.Animate();
+
+        yield return new WaitUntil(() => _skipCutscene == true);
+        _skipCutscene = false;
+
         Start2.SetActive(false);
         Game.SetActive(true);
 
@@ -133,6 +155,8 @@ public class GameManager : MonoBehaviour
         {
             beepAudiosource.Stop();
         }
+
+        _skipCutscene = false;
     }
 
     public void RingPhone(string ringTone)
@@ -180,6 +204,7 @@ public class GameManager : MonoBehaviour
 
     void GetInputMessage(string message)
     {
+        _skipCutscene = true;
         PublicMessage = message;
         if (message == StringData.up)
         {

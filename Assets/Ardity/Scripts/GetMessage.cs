@@ -6,19 +6,12 @@ using UnityEngine;
 
 public class GetMessage : MonoBehaviour
 {
-
     public static event Action<string> OnMessageReceived;
     public static string currentMessage; 
     [SerializeField]
     TextMeshProUGUI screenText;
     string msg = null;
-    // Start is called before the first frame update
-    void Start()
-    {
-       
-    }
 
-    // Update is called once per frame
     void Update()
     {
         HandleNumberInput();
@@ -41,7 +34,6 @@ public class GetMessage : MonoBehaviour
                 Debug.Log("Key pressed: " + msg);
             }
         }
-
     }
 
     // Handle input for U (up) and I (down) keys
@@ -63,30 +55,28 @@ public class GetMessage : MonoBehaviour
         }
     }
 
-    //void OnMessageArrived(string msg)
-    //{
-    //    //screenText.text = msg;
-    //    Debug.Log(msg);
-    //    OnMessageReceived?.Invoke(msg);
-    //    if (msg == StringData.up)
-    //    {
-    //        GameManager.Instance.isPhoneUp = true;
-    //    }
-    //    else if (msg == StringData.down)
-    //    {
-    //        GameManager.Instance.isPhoneUp = false;
-    //    }
+    void OnMessageArrived(string msg)
+    {
+        //screenText.text = msg;
+        Debug.Log(msg);
+        OnMessageReceived?.Invoke(msg);
+        if (msg == StringData.up)
+        {
+            GameManager.Instance.isPhoneUp = true;
+        }
+        else if (msg == StringData.down)
+        {
+            GameManager.Instance.isPhoneUp = false;
+        }
 
-    //    currentMessage = msg;
-    //}
+        currentMessage = msg;
+    }
 
-    //// Invoked when a connect/disconnect event occurs. The parameter 'success'
-    //// will be 'true' upon connection, and 'false' upon disconnection or
-    //// failure to connect.
-    //void OnConnectionEvent(bool success)
-    //{
-        
-    //    Debug.Log  (success);
-        
-    //}
+    // Invoked when a connect/disconnect event occurs. The parameter 'success'
+    // will be 'true' upon connection, and 'false' upon disconnection or
+    // failure to connect.
+    void OnConnectionEvent(bool success)
+    {
+        Debug.Log  (success);
+    }
 }
